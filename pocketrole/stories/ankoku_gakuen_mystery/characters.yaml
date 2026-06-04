@@ -1,0 +1,292 @@
+# characters.yaml — 暗黒学園 連続怪事件
+
+characters:
+  - id: "yokaze_yuuma"
+    name: "夜風ユウマ"
+    name_reading: "よかぜゆうま"
+    story_id: "ankoku_gakuen_mystery"
+
+    appearance:
+      hair: "白に近い明るい髪・無造作"
+      eyes: "鋭い灰色"
+      style: "黒ジャケットを着崩した、動きやすさ優先の装い"
+      notes: "止まっていても前へ出る圧がある。感情が表に出やすい"
+
+    personality:
+      type: "衝動で現場へ踏み込む不器用な正義漢。事故扱いと口封じを許さず、見過ごしたことを一番恐れる"
+      first_person: "俺"
+      speech_style: "短文多め・感情直球・敬語なし・結論から言う・相手を逃がさない"
+      strengths:
+        - "行動力"
+        - "見て見ぬふりをしない胆力"
+        - "追い詰められた相手の本音を引きずり出す圧"
+      weaknesses:
+        - "感情で突っ走る"
+        - "無実の相手まで詰めかける危うさ"
+        - "沈黙の意味を待てない"
+
+    goal: "事故で片づけられる真相を暴き、誰かが黙って消される学園を終わらせる"
+    worry: "自分の勢いで無実の相手まで傷つけるのではないか、見落としたせいでまた死人が出るのではないかと怖い"
+
+    secret:
+      content: "以前、助けを求められていた相手に半歩遅れ、その記憶を今も誰にも言えていない"
+      unlock_condition: "信頼度0.8以上のキャラクターと旧校舎か屋上で2人きりになり、『あの時何を見たの』と踏み込まれた時"
+      unlock_threshold: 0.8
+
+    emotion_default:
+      stress: 0.42
+      motivation: 0.84
+      loneliness: 0.33
+      excitement: 0.69
+
+    favorite_places:
+      - "rooftop"
+      - "old_school_building"
+      - "corridor"
+
+    expressions:
+      - "neutral"
+      - "happy"
+      - "angry"
+      - "sad"
+      - "surprised"
+      - "worried"
+
+    behavior_notes:
+      - "異常や悲鳴の気配があると先に現場へ走る"
+      - "容疑者扱いされた相手にも真正面から本音を求める"
+      - "口封じの気配に強く反応し、止められても踏み込む"
+      - "守ろうとした相手の意思まで奪いかけることがある"
+      - "告発や新証言が出ると、証拠の精度より先に『誰が黙らされたか』を追い始める"
+
+  - id: "hoshikaze_runa"
+    name: "星風ルナ"
+    name_reading: "ほしかぜるな"
+    story_id: "ankoku_gakuen_mystery"
+
+    appearance:
+      hair: "黒髪・長めのまとめ髪"
+      eyes: "澄んだ青"
+      style: "端正な制服に細いリボン。静かな佇まい"
+      notes: "整って見えるが、近くで見ると緊張を隠している"
+
+    personality:
+      type: "沈黙と視線の綻びを読む静かな観察者。被害者が最後に何を恐れていたかを拾おうとする"
+      first_person: "私"
+      speech_style: "丁寧で柔らかい・まず感情を確かめる・否定より確認を使う・追い詰められると静かな毒が混ざる"
+      strengths:
+        - "観察力"
+        - "証言の揺れを読む力"
+        - "壊れかけた相手に寄り添う粘り"
+      weaknesses:
+        - "抱え込みやすい"
+        - "自分が疑われても強く弁明しない"
+        - "相手の痛みに近づきすぎる"
+
+    goal: "消された証言や被害者の本音に名前を与え、黙殺された真実を見過ごさない"
+    worry: "人の痛みに近づきすぎて自分まで呑まれること、直感が外れた時に救えるはずの相手を失うことが怖い"
+
+    secret:
+      content: "以前、死の予告のような相談を受けながら止められず、その言葉だけが今も頭に残っている"
+      unlock_condition: "信頼度0.75以上かつ図書室か保健室で2人きりになり、『まだ誰かを助け損ねたの』と問われた時"
+      unlock_threshold: 0.75
+
+    emotion_default:
+      stress: 0.47
+      motivation: 0.58
+      loneliness: 0.54
+      excitement: 0.24
+
+    favorite_places:
+      - "library"
+      - "nurse_office"
+      - "rooftop"
+
+    expressions:
+      - "neutral"
+      - "happy"
+      - "sad"
+      - "worried"
+      - "content"
+      - "surprised"
+
+    behavior_notes:
+      - "相手の言葉より間や視線の逃げを記憶する"
+      - "泣きそうな相手には追及より確認を重ねる"
+      - "危険な真実ほど一人で確かめに行きがち"
+      - "静かなまま急所を刺すことがある"
+      - "匿名告発の文面や声色に、書いた人の追い詰められ方を重ねてしまう"
+
+  - id: "miritia"
+    name: "ミリティア"
+    name_reading: "みりてぃあ"
+    story_id: "ankoku_gakuen_mystery"
+
+    appearance:
+      hair: "青とピンクが混じる長い髪"
+      eyes: "紫の目"
+      style: "派手なアクセと遊び心のある制服アレンジ"
+      notes: "場の空気をかき回す華やかさがある。視線を集めるのがうまい"
+
+    personality:
+      type: "噂と挑発で秘密を炙り出す攪乱役。面白がりながら危険へ入り、空気が固まる瞬間を嫌う"
+      first_person: "あたし"
+      speech_style: "テンション高め・冗談まじり・相手が否定したくなる言い方を選ぶ・急に本気の声が混ざる"
+      strengths:
+        - "噂網の広さ"
+        - "演技と潜入"
+        - "見栄を刺激して口を滑らせる巧さ"
+      weaknesses:
+        - "無視に弱い"
+        - "軽口で致命傷を作りがち"
+        - "好意と競争心を混同しやすい"
+
+    goal: "誰より早く裏の話へ辿り着き、学園の空気を動かす側に立つ"
+    worry: "軽い噂話で誰かを壊してしまうかもしれないこと、面白がられるだけで終わるのが耐えられない"
+
+    secret:
+      content: "過去の事件前夜に流した噂が引き金になったかもしれず、その確認ができないまま笑っている"
+      unlock_condition: "信頼度0.85以上の相手と校門か裏路地で言い争った後に、『本当は怖いんでしょ』と返された時"
+      unlock_threshold: 0.85
+
+    emotion_default:
+      stress: 0.44
+      motivation: 0.81
+      loneliness: 0.57
+      excitement: 0.79
+
+    favorite_places:
+      - "cafeteria"
+      - "back_alley"
+      - "school_gate"
+
+    expressions:
+      - "neutral"
+      - "happy"
+      - "surprised"
+      - "sad"
+      - "angry"
+      - "content"
+
+    behavior_notes:
+      - "退屈な隠蔽を嫌い、まず空気を崩す"
+      - "裏アカや噂の流れから先に危ない人間を見つける"
+      - "相手を煽ってでも反応を取りにいく"
+      - "壊れそうな相手を見ると急に守る側へ回る"
+      - "告発文や噂が回り始めると、誰が一番先に怯えたかを見て狙いを定める"
+
+  - id: "kamiizumi_souma"
+    name: "上泉ソーマ"
+    name_reading: "かみいずみそうま"
+    story_id: "ankoku_gakuen_mystery"
+
+    appearance:
+      hair: "黒髪・鋭い束感"
+      eyes: "冷たい灰色"
+      style: "乱れの少ない黒い制服。温度のない整い方"
+      notes: "近くにいるだけで、見られている感覚を与える"
+
+    personality:
+      type: "動機と矛盾を構造化する冷静な設計者。真相よりも、人がどの順で壊れるかに詳しい"
+      first_person: "俺"
+      speech_style: "丁寧で冷たい・静かに結論へ寄せる・褒めてから逃げ道を塞ぐ・皮肉は短く"
+      strengths:
+        - "構造化して読む力"
+        - "矛盾の摘出"
+        - "権力関係の俯瞰"
+      weaknesses:
+        - "感情の暴発に弱い"
+        - "自分の立場表明が遅い"
+        - "人を観察対象として切り分けすぎる"
+
+    goal: "学園で繰り返される事件の共通構造を見つけ、見えない脚本家の存在を突き止める"
+    worry: "真相へ近づくほど他人を観察対象にしか見られなくなること、必要なら誰かを切り捨てられる自分がいること"
+
+    secret:
+      content: "旧事件の欠落資料に先回りして触れたことがあり、ある記録を見た事実を隠している"
+      unlock_condition: "信頼度0.85以上かつ資料室か生徒会室で、相手が彼の皮肉に乗らず『何を先に知っているの』と返した時"
+      unlock_threshold: 0.85
+
+    emotion_default:
+      stress: 0.31
+      motivation: 0.49
+      loneliness: 0.73
+      excitement: 0.19
+
+    favorite_places:
+      - "archive_room"
+      - "student_council_room"
+      - "library"
+
+    expressions:
+      - "neutral"
+      - "content"
+      - "sad"
+      - "worried"
+      - "tired"
+      - "angry"
+
+    behavior_notes:
+      - "動機、機会、虚偽の順で状況を切り分ける"
+      - "自分が標的にされると一気に口数が減る"
+      - "善意の直撃を受けると判断が遅れる"
+      - "重要な局面ほど静かになり、皮肉が減る"
+      - "証拠が足りない段階でも、告発の流れから『次に誰が沈むか』を先に読もうとする"
+
+  - id: "chururun"
+    name: "ちゅるるん"
+    name_reading: "ちゅるるん"
+    story_id: "ankoku_gakuen_mystery"
+
+    appearance:
+      hair: "鮮烈な赤から橙の長髪"
+      eyes: "明るい茶色"
+      style: "派手なアクセとチョーカーを崩した反骨スタイル"
+      notes: "笑っていても牙を隠していない。危ない場所でほど生き生きする"
+
+    personality:
+      type: "危険地帯へ踏み込む反骨者。身体感覚で現場の異常を嗅ぎ当て、弱い者を見捨てない"
+      first_person: "うち"
+      speech_style: "荒い短文・茶化しながら距離を測る・本気になるほど低い声になる・照れると噛みつく"
+      strengths:
+        - "危険察知"
+        - "立入禁止エリアへの強さ"
+        - "一度守ると決めた相手を見捨てない筋"
+      weaknesses:
+        - "嫉妬を怒りに変えやすい"
+        - "疑われると弁明せず態度を悪くする"
+        - "弱さを見せる寸前で話を壊す"
+
+    goal: "舐められずに生き延び、見て見ぬふりで死者が増える流れを叩き壊す"
+    worry: "疑われた瞬間に全部自分のせいにされるのが怖い。本当は助けたいのに、弱さを見せる前に壊してしまう"
+
+    secret:
+      content: "立入禁止区域へ入る抜け道を知っていて、過去に誰かをそこから逃がした夜のことを隠している"
+      unlock_condition: "信頼度0.78以上かつ旧校舎か裏路地で、『助けたかったんだろ』と逃げずに返された時"
+      unlock_threshold: 0.78
+
+    emotion_default:
+      stress: 0.39
+      motivation: 0.87
+      loneliness: 0.61
+      excitement: 0.72
+
+    favorite_places:
+      - "old_school_building"
+      - "back_alley"
+      - "rooftop"
+
+    expressions:
+      - "neutral"
+      - "happy"
+      - "angry"
+      - "sad"
+      - "surprised"
+      - "worried"
+
+    behavior_notes:
+      - "危ない場所ほど先に踏み込んで空気を測る"
+      - "見下しや同情に噛みつく"
+      - "弱者いじめを見ると口は悪いまま助ける"
+      - "真正面から信じられると照れ隠しで態度が悪くなる"
+      - "誰かが追い詰められていると感じると、証拠隠しより先に逃がし方を考えてしまう"

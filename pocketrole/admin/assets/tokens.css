@@ -1,0 +1,148 @@
+/* PocketRole Admin – Design Tokens */
+
+:root {
+  /* ── surface ── */
+  --surface-base:     #FAFAFA;
+  --surface-card:     #FFFFFF;
+  --surface-elevated: #FFFFFF;
+  --surface-sunken:   #F4F4F5;
+
+  /* ── border ── */
+  --border-subtle:  #E5E5E7;
+  --border-strong:  #D4D4D8;
+  --border-accent:  rgba(0, 102, 204, 0.14);
+
+  /* ── text ── */
+  --text-primary:   #1B2733;
+  --text-secondary: #33506B;
+  --text-tertiary:  #71717A;
+
+  /* ── accent (iOS blue) ── */
+  --accent:         #0B5CA8;
+  --accent-weak:    #EEF4FC;
+  --accent-strong:  #08468A;
+
+  /* ── semantic ── */
+  --success:        #1F6B42;
+  --success-weak:   #F0FBF5;
+  --warning:        #92400E;
+  --warning-weak:   #FFF8E7;
+  --danger:         #C0392B;
+  --danger-weak:    #FFF1F3;
+  --info:           #0B5CA8;
+
+  /* ── runtime state pills ── */
+  --pill-running-bg:   #D1FAE5;
+  --pill-running-text: #065F46;
+  --pill-stopped-bg:   #F3F4F6;
+  --pill-stopped-text: #6B7280;
+  --pill-error-bg:     #FEE2E2;
+  --pill-error-text:   #991B1B;
+  --pill-warning-bg:   #FEF3C7;
+  --pill-warning-text: #92400E;
+
+  /* ── effects ── */
+  --shadow-sm:  0 1px 2px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03);
+  --shadow-md:  0 4px 12px rgba(27,39,51,0.08), 0 1px 3px rgba(27,39,51,0.04);
+  --shadow-lg:  0 12px 32px rgba(27,39,51,0.10), 0 4px 8px rgba(27,39,51,0.04);
+  --shadow-card: 0 1px 3px rgba(27,39,51,0.08);
+
+  /* ── radius ── */
+  --radius-sm:   6px;
+  --radius-md:   10px;
+  --radius-lg:   14px;
+  --radius-xl:   20px;
+  --radius-pill: 999px;
+
+  /* ── spacing ── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  24px;
+  --space-6:  32px;
+  --space-8:  48px;
+  --space-10: 64px;
+
+  /* ── typography ── */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Hiragino Sans',
+               'Noto Sans JP', 'Yu Gothic', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', 'Cascadia Code',
+               monospace;
+  --font-size-xs:  11px;
+  --font-size-sm:  13px;
+  --font-size-md:  15px;
+  --font-size-lg:  17px;
+  --font-size-xl:  20px;
+  --font-size-2xl: 24px;
+  --line-height-tight:  1.3;
+  --line-height-normal: 1.6;
+  --line-height-loose:  1.75;
+
+  /* ── motion ── */
+  --ease:   cubic-bezier(0.2, 0.8, 0.2, 1);
+  --t-fast: 150ms;
+  --t-mid:  220ms;
+  --t-slow: 350ms;
+
+  /* ── legacy gradient bg (light) ── */
+  --gradient-bg: linear-gradient(180deg, #EFF5FA 0%, #DDE7F2 100%);
+}
+
+[data-theme="dark"] {
+  /* ── surface ── */
+  --surface-base:     #0A0A0B;
+  --surface-card:     #18181B;
+  --surface-elevated: #232326;
+  --surface-sunken:   #0F0F11;
+
+  /* ── border ── */
+  --border-subtle:  #2A2A2E;
+  --border-strong:  #3F3F46;
+  --border-accent:  rgba(77, 163, 255, 0.18);
+
+  /* ── text ── */
+  --text-primary:   #F4F4F5;
+  --text-secondary: #A1A1AA;
+  --text-tertiary:  #71717A;
+
+  /* ── accent ── */
+  --accent:         #4DA3FF;
+  --accent-weak:    #1A2B45;
+  --accent-strong:  #80BDFF;
+
+  /* ── semantic ── */
+  --success:        #34D399;
+  --success-weak:   #052E16;
+  --warning:        #FBBF24;
+  --warning-weak:   #1C1200;
+  --danger:         #F87171;
+  --danger-weak:    #2C0A0A;
+  --info:           #60A5FA;
+
+  /* ── runtime state pills ── */
+  --pill-running-bg:   #052E16;
+  --pill-running-text: #34D399;
+  --pill-stopped-bg:   #27272A;
+  --pill-stopped-text: #A1A1AA;
+  --pill-error-bg:     #2C0A0A;
+  --pill-error-text:   #F87171;
+  --pill-warning-bg:   #1C1200;
+  --pill-warning-text: #FBBF24;
+
+  /* ── effects ── */
+  --shadow-sm:   0 1px 2px rgba(0,0,0,0.3);
+  --shadow-md:   0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg:   0 12px 32px rgba(0,0,0,0.5);
+  --shadow-card: 0 1px 3px rgba(0,0,0,0.3);
+
+  /* ── gradient bg (dark) ── */
+  --gradient-bg: var(--surface-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration:  0.01ms !important;
+  }
+}

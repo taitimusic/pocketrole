@@ -1,0 +1,519 @@
+story:
+  id: ankoku_gakuen_2
+  story_mode: comedy
+  title: 逢魔ヶ刻学園 — トージョー大サーカスへようこそ カスタム
+  description: 私立逢魔ヶ刻学園、経営難で廃校の危機。乗り込んできた新理事会が生徒に突きつけた条件は「トージョー大サーカスの余興を手伝え」。音楽経験ほぼゼロの7人が、廃校回避のために笑えない悲喜劇に挑む
+  season_start: '2026-04-09'
+  turn_minutes: 30
+  turn_interval_sec: 45
+  world_rules: 'ここは私立逢魔ヶ刻学園。慢性的な経営難の末、外部の新理事会が運営権を掌握した。
+
+    生徒には「最終通告書」が届いた。東上重盛理事長の名前で、全文2,134字。要点は最後の3行だけだった。「廃校する」と書いてあった。
+
+    数日後、焼坂財務本部長から別の封書が届いた。「トージョー大サーカスの余興を手伝え。30日後の公演に間に合わせや。それやれば、学校閉鎖は勘弁したる」。
+
+    こうして7人の素人集団が、廃校を回避するためにサーカスの余興に挑むことになった。
+
+    音楽経験があるのは星風ルナだけ（ピアノのみ）。あとは全員素人。カラオケ好きのミリティアと、謎の楽器を持ち込むゆっくり魔理沙がいる。
+
+    焼坂組長からは毎月新たな余興課題が届く。音楽だけでなく、漫才・マジック・大道芸まで何でもあり。卒業するまで余興は続く。
+
+    東上理事長の哲学文書（毎回2,000字超）と焼坂組長の取り立て封書（関西弁・簡潔）が定期的に届く。
+
+    「学校なくなったら……どうするの」という不安と「こんな素人がどうするの」という笑いが同時に存在する。'
+places:
+- id: classroom
+  label: 教室
+  zone: school
+  atmosphere: 日常と不安が混ざる。授業中でも、サーカス課題のことが頭から離れない
+  who_gathers: 授業時間中は全員
+  events_likely:
+  - 授業中の居眠りとサーカス対策メモ
+  - 小テストと「漫才のネタどうしよう」の心配
+  - 焼坂組長の新しい封書が回ってくる
+  - ミリティアがこっそりSNS告知の文面を考えている
+  access_note: 授業時間中は基本ここ。移動は廊下経由
+  adjacent_places:
+    corridor: 1
+- id: rooftop
+  label: 屋上
+  zone: school
+  atmosphere: 風が強く、密談・独白・一人の時間に使われる。夜風ユウマがここで長い独白をする
+  who_gathers: ユウマ、ルナ、ソーマ。一人で来ることが多い
+  events_likely:
+  - ユウマの長い独白（オチがトンチンカン）
+  - ちゅるるんがルナにライバル宣言する
+  - ソーマが本を読みながら全員を観察している
+  - ミリティアがサーカス公演の告知文を考えている
+  access_note: 授業中は立入禁止だが鍵がかかっていないことも多い
+  adjacent_places:
+    corridor: 2
+- id: music_room
+  label: 音楽室
+  zone: school
+  atmosphere: 練習の主要拠点。ルナが唯一落ち着ける場所。マリサの謎楽器が運び込まれることが多い
+  who_gathers: ルナ、ミリティア、ちゅるるん（放課後）
+  events_likely:
+  - ルナのピアノ練習と全員の自主練
+  - マリサが謎の物体を持ち込んで楽器化を試みる
+  - ちゅるるんがルナに「見ててよ！！」と演奏を披露する
+  - ソーマが音楽理論の本を読みながら皮肉を言う
+  access_note: 放課後は開放。夜は管理員の目を盗む必要あり
+  adjacent_places:
+    corridor: 1
+    junk_yard: 1
+- id: gym
+  label: 体育館
+  zone: school
+  atmosphere: 広くて響く。サーカスのリハーサルや大道芸の練習に意外と使われる
+  who_gathers: ユウマ、ちゅるるん
+  events_likely:
+  - 体育の授業
+  - 空中ブランコの練習（無謀）
+  - 漫才の立ち位置の確認
+  access_note: 体育や部活以外は自由に入れる
+  adjacent_places:
+    corridor: 2
+- id: corridor
+  label: 廊下
+  zone: school
+  atmosphere: 移動の場。マリサが謎の物体を担いで歩いているのをよく見かける
+  who_gathers: 全員（移動時）
+  events_likely:
+  - マリサが謎楽器候補を担いで歩いている
+  - ちゅるるんがルナに駆け寄ってライバル宣言する
+  - 経営陣からの封書が学校に届いた報告が走る
+  - ユウマが独白しながら歩いている
+  access_note: 学校内の主要移動経路
+  adjacent_places:
+    classroom: 1
+    rooftop: 2
+    music_room: 1
+    junk_yard: 1
+    cafeteria: 1
+    library: 1
+    gym: 2
+    school_gate: 2
+    practice_hall: 1
+    snack_area: 1
+    basement_storage: 2
+- id: cafeteria
+  label: 食堂
+  zone: school
+  atmosphere: 賑やかで噂が増幅される場所。ミリティアがSNS告知の反応をチェックしている
+  who_gathers: ミリティア、マリサ（昼休み）。全員が昼に集まる
+  events_likely:
+  - 昼食と「課題どうする？」の掛け合い
+  - ミリティアがサーカス告知のエンゲージメントを確認
+  - マリサが給食のスプーンを楽器にしようとして止められる
+  access_note: 昼休みのみ営業
+  adjacent_places:
+    corridor: 1
+    snack_area: 1
+- id: library
+  label: 図書室
+  zone: school
+  atmosphere: 静かで落ち着く。ソーマが音楽理論や手品の本を読んでいる
+  who_gathers: ルナ、ソーマ
+  events_likely:
+  - ソーマが音楽理論の本を読んでいる（実践はできない）
+  - ルナが龍笛の楽譜を探している（全員を置いてけぼりにする素材）
+  - 静かな密談
+  access_note: 放課後も開放。静寂ルールあり
+  adjacent_places:
+    corridor: 1
+- id: school_gate
+  label: 校門
+  zone: school
+  atmosphere: 登下校の玄関。経営陣からの封書が届く場所。焼坂組長の使者が時々現れる
+  who_gathers: 全員（登下校時）
+  events_likely:
+  - 朝の挨拶と「また封書来た」の報告
+  - 帰り際の呼び止め
+  - 焼坂組長の新たな余興課題通知
+  access_note: 朝と夕方が賑わう
+  adjacent_places:
+    corridor: 2
+    town_park: 2
+    music_shop: 3
+    home: 4
+- id: town_park
+  label: 公園
+  zone: town
+  atmosphere: 開放的な屋外。放課後の気分転換。ユウマが一人で独白していることがある
+  who_gathers: ミリティア、ちゅるるん
+  events_likely:
+  - 放課後の独り歩き
+  - ユウマが公園のベンチで独白（「クソ……」から始まる）
+  - ちゅるるんが木に向かってギターの練習
+  access_note: 24時間開放だが夜は人が少ない
+  adjacent_places:
+    school_gate: 2
+    music_shop: 2
+    home: 3
+- id: music_shop
+  label: 楽器店
+  zone: town
+  atmosphere: 楽器と音楽の匂い。ちゅるるんがギターの弦を買いに来る。マリサが謎の素材を物色している
+  who_gathers: ちゅるるん、ルナ、マリサ
+  events_likely:
+  - ちゅるるんが弦を購入・店主に練習を見せようとする
+  - ルナが龍笛の弦を探している
+  - マリサが「楽器になりそうなもの」を物色する
+  access_note: 18時閉店。定休日あり
+  adjacent_places:
+    school_gate: 3
+    town_park: 2
+    home: 2
+- id: home
+  label: 自宅
+  zone: home
+  atmosphere: 安心できる私的空間。だがサーカス課題のプレッシャーで夜も落ち着けない
+  who_gathers: 各キャラクター（夜間・就寝時）
+  events_likely:
+  - 就寝前の一人時間と課題への不安
+  - ユウマが「明日こそ俺に考えが出てくるはず」と念じながら寝る
+  - ちゅるるんがこっそりギターを練習している
+  access_note: 夜22時以降は基本ここ
+  adjacent_places:
+    school_gate: 4
+    town_park: 3
+    music_shop: 2
+- id: junk_yard
+  label: ガラクタ置き場
+  zone: school
+  atmosphere: 旧音楽室跡地を転用したガラクタ置き場。マリサの楽器素材調達場。変な音がよく鳴る
+  who_gathers: マリサ（毎日来る）
+  events_likely:
+  - マリサが謎楽器候補の新素材を発見する
+  - 34点目のスケッチブックへの記録
+  - 1点だけ本当にいい音が出るものが眠っている
+  - マリサに引きずられてちゅるるんも来てしまう
+  access_note: 一般生徒は用はないはずだが、マリサは毎日来る
+  adjacent_places:
+    corridor: 1
+    music_room: 1
+    basement_storage: 1
+- id: basement_storage
+  label: 練習棟地下倉庫
+  zone: school
+  atmosphere: 古い楽器・雑多な機材が積まれた暗い倉庫。ソーマとユウマが密談する場所
+  who_gathers: ユウマ（一人で考え込む）、ソーマ（観察者として）
+  events_likely:
+  - ユウマとソーマの密談（「七割間違ってるが三割正解だ」）
+  - ユウマが「俺に考えがある」と言い出す
+  - 古い手品道具が見つかる（ソーマが珍しく反応する）
+  access_note: 一般生徒は通常立入禁止。施錠は緩い
+  adjacent_places:
+    corridor: 2
+    music_room: 2
+    junk_yard: 1
+- id: practice_hall
+  label: 練習ホール
+  zone: school
+  atmosphere: 旧放送室を転用した練習・リハーサル用スペース。サーカス余興の本番前確認をする場所
+  who_gathers: ルナ（練習・リハーサル）、全員（本番前）
+  events_likely:
+  - サーカス公演前の通し練習
+  - ちゅるるんがルナに「見ててよ！！」と披露する
+  - 霊夢が神社の鈴を持ち込もうとして止められる
+  - 「あと○日で本番だぞ」の確認
+  access_note: 練習部員のみ。発表前は忙しくなる
+  adjacent_places:
+    corridor: 1
+- id: snack_area
+  label: 購買前
+  zone: school
+  atmosphere: 購買・食堂前の通路。雑談・ダラダラが発生する気軽な場所。マリサの情報収集拠点
+  who_gathers: マリサ、ミリティア（昼休み）
+  events_likely:
+  - マリサが新素材候補の情報を集める
+  - ミリティアがSNS告知の反応を確認
+  - 霊夢が「また封書来た」と報告する
+  access_note: 昼休みと放課後に賑わう
+  adjacent_places:
+    corridor: 1
+    cafeteria: 1
+time_schedules:
+- day_type: weekday
+  time_from: 07:00
+  time_to: 08:30
+  label: 登校
+  expected_places:
+  - school_gate
+  - corridor
+  mood_modifier: 0.0
+  anomaly_note: この時間にガラクタ置き場や地下倉庫にいる場合は謎の素材調達中
+- day_type: weekday
+  time_from: 08:30
+  time_to: '12:00'
+  label: 午前授業
+  expected_places:
+  - classroom
+  mood_modifier: -0.1
+  anomaly_note: 授業中に音楽室・練習ホールにいる場合は抜け出して練習中
+- day_type: weekday
+  time_from: '12:00'
+  time_to: '13:00'
+  label: 昼休み
+  expected_places:
+  - cafeteria
+  - snack_area
+  - rooftop
+  - corridor
+  mood_modifier: 0.2
+  anomaly_note: null
+- day_type: weekday
+  time_from: '13:00'
+  time_to: '16:30'
+  label: 午後授業
+  expected_places:
+  - classroom
+  mood_modifier: -0.15
+  anomaly_note: 授業中に学校外や練習ホールにいる場合は異常
+- day_type: weekday
+  time_from: '16:30'
+  time_to: '18:30'
+  label: 放課後
+  expected_places:
+  - music_room
+  - practice_hall
+  - library
+  - rooftop
+  - junk_yard
+  mood_modifier: 0.3
+  anomaly_note: null
+- day_type: weekday
+  time_from: '18:30'
+  time_to: '22:00'
+  label: 夕方〜夜
+  expected_places:
+  - home
+  - town_park
+  - music_shop
+  mood_modifier: 0.0
+  anomaly_note: 21時以降に一人で校内にいる場合は謎練習中の可能性
+- day_type: weekday
+  time_from: '22:00'
+  time_to: 07:00
+  label: 深夜〜就寝
+  expected_places:
+  - home
+  mood_modifier: -0.2
+  anomaly_note: 深夜に練習ホールやガラクタ置き場にいる場合は追い詰められている
+- day_type: weekend
+  time_from: 09:00
+  time_to: '12:00'
+  label: 午前（自由）
+  expected_places:
+  - home
+  - town_park
+  - music_shop
+  mood_modifier: 0.2
+  anomaly_note: null
+- day_type: weekend
+  time_from: '12:00'
+  time_to: '17:00'
+  label: 午後（自由）
+  expected_places:
+  - corridor
+  - music_room
+  - practice_hall
+  - town_park
+  - library
+  mood_modifier: 0.3
+  anomaly_note: null
+- day_type: weekend
+  time_from: '17:00'
+  time_to: '21:00'
+  label: 夕方（自由）
+  expected_places:
+  - home
+  - town_park
+  mood_modifier: 0.1
+  anomaly_note: 20時以降に一人でガラクタ置き場にいる場合は謎の素材を磨いている
+- day_type: weekend
+  time_from: '21:00'
+  time_to: 09:00
+  label: 夜〜就寝
+  expected_places:
+  - home
+  mood_modifier: -0.1
+  anomaly_note: 深夜に地下倉庫で密談している場合は重要な作戦会議
+event_calendar:
+- event_date: 04-08
+  name: 始業式・廃校最終通告書が届く
+  duration_days: 1
+  atmosphere: 新学期。東上重盛理事長からの通告書が配布された。全文2,134字。要点は最後の3行だけだった
+  emotion_impact:
+    stress: 0.5
+    excitement: 0.1
+    loneliness: 0.2
+  force_place: classroom
+- event_date: 04-09
+  name: 焼坂組長の追加条件封書が届く
+  duration_days: 1
+  atmosphere: 焼坂財務本部長から封書。「トージョー大サーカスの余興を手伝え。30日後の公演に間に合わせや」。霊夢「人さらいが来てサーカス団に……」
+  emotion_impact:
+    stress: 0.6
+    excitement: 0.3
+    loneliness: 0.1
+  force_place: music_room
+- event_date: 04-15
+  name: 第一回サーカス余興練習（大混乱）
+  duration_days: 1
+  atmosphere: 音楽演奏の練習初日。マリサがホースを持参し水が出た。霊夢が神社の鈴を持ち込もうとして止められた
+  emotion_impact:
+    stress: 0.4
+    excitement: 0.5
+    loneliness: 0.0
+  force_place: music_room
+- event_date: 04-20
+  name: 中間報告デモが大爆死
+  duration_days: 1
+  atmosphere: 焼坂組長へのデモ音源報告。翌日、東上理事長から全文1,700字の批評文書が届いた。要点：「話にならない」
+  emotion_impact:
+    stress: 0.5
+    motivation: -0.1
+    excitement: 0.2
+  force_place: null
+- event_date: 04-28
+  name: 焼坂組長から積立金天引き通知
+  duration_days: 1
+  atmosphere: 課外活動費から「学園復興積立金」が天引きされた通知。「あ、今月の積立金まだやないか」
+  emotion_impact:
+    stress: 0.4
+    motivation: -0.1
+  force_place: null
+- event_date: 05-08
+  name: トージョー大サーカス初公演日（30日目）
+  duration_days: 2
+  atmosphere: 30日間の練習の成果を披露する日。成功すれば廃校は猶予。失敗したら……「また来年も来てくれや」（焼坂組長）
+  emotion_impact:
+    stress: 0.8
+    excitement: 0.8
+    motivation: 0.5
+  force_place: practice_hall
+- event_date: 05-14
+  name: 第2弾余興課題「漫才をやらされる羽目に」
+  duration_days: 1
+  atmosphere: 焼坂組長から新たな封書。「次の余興は漫才や。ボケとツッコミ、ちゃんと決めといてや」。霊夢「またサーカスに売られてるわね」
+  emotion_impact:
+    stress: 0.4
+    excitement: 0.4
+    loneliness: 0.0
+  force_place: null
+- event_date: 05-23
+  name: 中間試験週
+  duration_days: 5
+  atmosphere: 試験のストレスが各キャラの感情を揺さぶる。サーカス練習も並行して進まなければならない
+  emotion_impact:
+    stress: 0.4
+    motivation: -0.1
+    loneliness: 0.2
+  force_place: classroom
+- event_date: 06-06
+  name: 漫才初披露（ソーマ「俺がボケをやれば」発言）
+  duration_days: 1
+  atmosphere: 漫才の初リハーサル。ソーマが「俺がボケをやれば勝てる」と宣言して全員が固まった
+  emotion_impact:
+    excitement: 0.6
+    stress: 0.2
+  force_place: practice_hall
+- event_date: 06-20
+  name: 第3弾余興課題「マジックショーをやらされる羽目に」
+  duration_days: 1
+  atmosphere: 焼坂組長から次の封書。「今度はマジックや」。ソーマが珍しく嬉しそうにした（手品の本を3冊持っていることが後でバレる）
+  emotion_impact:
+    stress: 0.3
+    excitement: 0.5
+  force_place: null
+- event_date: 07-15
+  name: 夏の中間公演
+  duration_days: 2
+  atmosphere: サーカス夏公演。漫才とマジックを披露。マリサのガラクタ置き場の34点目が登場するかもしれない
+  emotion_impact:
+    stress: 0.6
+    excitement: 0.7
+    motivation: 0.4
+  force_place: practice_hall
+- event_date: 07-25
+  name: 夏休み開始
+  duration_days: 1
+  atmosphere: 夏休みに突入。でも余興の練習は続く。焼坂組長「夏休みは関係あらへんで」
+  emotion_impact:
+    excitement: 0.3
+    stress: 0.2
+  force_place: null
+- event_date: 09-01
+  name: 新学期・第4弾余興課題「空中ブランコをやらされる羽目に」
+  duration_days: 1
+  atmosphere: 夏休み明け。焼坂組長から「次はサーカスっぽいことをやってもらおうか。空中ブランコや」。全員「え？」
+  emotion_impact:
+    stress: 0.5
+    excitement: 0.4
+  force_place: null
+- event_date: 12-15
+  name: お正月特別公演の通知「漫才（お正月バージョン）をやらされる羽目に」
+  duration_days: 1
+  atmosphere: 焼坂組長から年末特別通知。「年末年始の特別公演、お正月向けの漫才で頼むわ」。マリサが「正月の変装ネタ考えたぜ！」と謎の変装で登場
+  emotion_impact:
+    stress: 0.3
+    excitement: 0.5
+  force_place: null
+- event_date: 03-20
+  name: 卒業式（グッドエンドへ）
+  duration_days: 2
+  atmosphere: 卒業式。学校閉鎖されずに無事卒業できる日。焼坂組長「また来年も来てくれや」。全員「もう終わりだっ！……え、まだ続くの？」
+  emotion_impact:
+    excitement: 0.8
+    stress: -0.3
+    loneliness: 0.4
+    motivation: 0.6
+  force_place: practice_hall
+anomaly_rules:
+- label: マリサの謎楽器持参
+  condition_json:
+    place: music_room
+    multiple_characters: true
+  drama_potential: マリサが謎の物体を持ち込んで楽器化を試みる。霊夢のツッコミが始まる
+  suggested_reasons:
+  - マリサが廊下のホースを持参して吹いた（水が出た）
+  - 試験管をマリンバ代わりに並べようとしている
+  - 給食のスプーンを名器と称してカンカン鳴らしている
+- label: ユウマの独白スイッチ
+  condition_json:
+    place: rooftop
+    alone: true
+  drama_potential: ユウマが一人で屋上に来て長い独白を始める。オチがトンチンカン
+  suggested_reasons:
+  - 「クソ……なんでこうなる……待て、落ち着け俺……（3秒後）……あ、トイレ行きたい」
+  - 「俺に考えがある……俺に……（何も考えていない）」
+  - 「諦めるな俺……（翌朝）昨日何諦めそうになってたっけ？」
+- label: ちゅるるんのライバル宣言
+  condition_json:
+    place: practice_hall
+    multiple_characters: true
+  drama_potential: ちゅるるんがルナに一方的にライバル宣言する。ルナは気づかない
+  suggested_reasons:
+  - 「ルナ！！今日こそあなたを超えるから見ててよ！！」→「うん！応援してるよ！」（撃沈）
+  - ちゅるるんが練習を頑張っていてルナに褒められる→顔が赤くなる
+  - 「天才だから余裕でしょ！」→全然余裕じゃない
+- label: 霊夢の神社グッズ持込
+  condition_json:
+    place: music_room
+    alone: false
+  drama_potential: 霊夢が神社由来のものを楽器として持ち込もうとして全員からツッコまれる
+  suggested_reasons:
+  - 「実家の神社の鈴の音って音楽的にすごく神聖で……」→全員「お前もか！」
+  - お賽銭の音を「リズム」と呼んでいる
+  - 龍笛の楽譜を持ってきてルナと意気投合しそうになっている
+- label: 経営陣の封書着弾
+  condition_json:
+    place: classroom
+    multiple_characters: true
+  drama_potential: 東上理事長または焼坂組長からの封書が届いて全員が反応する
+  suggested_reasons:
+  - 東上理事長の2,000字超哲学文書が配布される
+  - 焼坂組長の関西弁1行取り立て通知が来る
+  - 「また余興課題が来た」と霊夢が報告する

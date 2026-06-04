@@ -1,0 +1,27 @@
+# Codex legacy skills (canonical is now .claude/skills/)
+.agents/
+# Local Codex session/config artifacts.
+.codex
+.codex/
+# Local agent/operator working files. Keep out of public distributions.
+/sagyou/
+# Generated clean public release worktrees.
+/pocketrole_for_github/
+# Claude Code - shared config is tracked, local settings excluded
+.claude/settings.local.json
+pocketrole/.env
+pocketrole/.venv/
+pocketrole/.pytest_cache/
+__pycache__/
+**/__pycache__/
+**/*.py[cod]
+pocketrole/__pycache__/
+pocketrole/**/__pycache__/
+pocketrole/**/*.py[cod]
+pocketrole/logs/
+pocketrole/db/*.db
+pocketrole/db/*.db-*
+pocketrole/web/chatlog/
+pocketrole/web/config/auth_token.txt
+*.swp
+*~

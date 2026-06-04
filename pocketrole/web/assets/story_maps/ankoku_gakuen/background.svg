@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2880" height="1200" viewBox="0 0 2880 1200">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#182338"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="hall" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2e4b91"/>
+      <stop offset="100%" stop-color="#384cc4"/>
+    </linearGradient>
+    <linearGradient id="warm" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#744210"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+  </defs>
+  <rect width="2880" height="1200" fill="url(#bg)"/>
+  <g opacity="0.18">
+    <circle cx="250" cy="150" r="180" fill="#f59e0b"/>
+    <circle cx="2500" cy="180" r="220" fill="#7c3aed"/>
+    <circle cx="2200" cy="1050" r="200" fill="#1d4ed8"/>
+  </g>
+
+  <g fill="#1e293b" stroke="#334155" stroke-width="4">
+    <rect x="90" y="90" width="420" height="180" rx="28"/>
+    <rect x="90" y="430" width="420" height="220" rx="28"/>
+    <rect x="90" y="770" width="420" height="220" rx="28"/>
+
+    <rect x="730" y="90" width="420" height="180" rx="28"/>
+    <rect x="730" y="430" width="420" height="220" rx="28"/>
+    <rect x="730" y="770" width="420" height="220" rx="28"/>
+
+    <rect x="1510" y="90" width="420" height="180" rx="28"/>
+    <rect x="1510" y="430" width="420" height="220" rx="28"/>
+    <rect x="1510" y="770" width="420" height="220" rx="28"/>
+
+    <rect x="2270" y="90" width="420" height="180" rx="28"/>
+    <rect x="2270" y="770" width="420" height="220" rx="28"/>
+  </g>
+
+  <g fill="url(#hall)" opacity="0.86">
+    <rect x="1160" y="510" width="320" height="60" rx="24"/>
+    <rect x="1940" y="510" width="320" height="60" rx="24"/>
+  </g>
+
+  <g fill="url(#warm)" opacity="0.88">
+    <rect x="1280" y="320" width="120" height="560" rx="32"/>
+  </g>
+
+  <g font-family="sans-serif" font-size="54" font-weight="700" fill="#e2e8f0" opacity="0.92">
+    <text x="140" y="150">music_room</text>
+    <text x="140" y="500">school_gate</text>
+    <text x="140" y="840">town_park</text>
+    <text x="790" y="150">cafeteria</text>
+    <text x="790" y="500">classroom</text>
+    <text x="790" y="840">music_shop</text>
+    <text x="1570" y="150">home</text>
+    <text x="1570" y="500">corridor</text>
+    <text x="1570" y="840">library</text>
+    <text x="2330" y="150">rooftop</text>
+    <text x="2330" y="840">unknown</text>
+  </g>
+
+  <g font-family="sans-serif" font-size="26" fill="#94a3b8" opacity="0.78">
+    <text x="1180" y="500">cinematic replay corridor</text>
+    <text x="1300" y="1110">ankoku_gakuen</text>
+  </g>
+</svg>

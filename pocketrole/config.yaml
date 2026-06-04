@@ -1,0 +1,250 @@
+# sandbox_platform/config.yaml.example
+# このファイルをコピーして config.yaml として使用してください:
+#   cp config.yaml.example config.yaml
+
+# ============================================================
+# LLMプロバイダー設定
+# ============================================================
+llm:
+  # クラウドAPIの同時リクエスト数上限
+  cloud_concurrency: 3
+
+  # thinking 系モデル向けのモデル別生成 profile
+  # model_profiles:
+  #   ollama:
+  #     "qwen3.5:9b":
+  #       reasoning_mode: "auto"
+  #       max_tokens: 1000
+  #       recovery_max_tokens: 1400
+  #       recovery_reasoning_mode: "off"
+
+  # プロバイダー定義
+  providers:
+    ollama:
+      base_url: "http://localhost:11434"
+      default_model: "gemma4:e4b"
+      timeout_sec: 120
+      max_retries: 3
+
+    openai:
+      # api_key は .env の OPENAI_API_KEY から読み込み
+      default_model: "gpt-5.4-nano"
+      api_mode: "auto"            # auto / chat_completions / responses
+      timeout_sec: 60
+      max_retries: 3
+      temperature: 0.8            # プロバイダーごとにデフォルト温度を設定可
+
+    anthropic:
+      # api_key は .env の ANTHROPIC_API_KEY から読み込み
+      default_model: "claude-sonnet-4-20250514"
+      timeout_sec: 60
+      max_retries: 3
+      max_tokens: 300             # Anthropicはmax_tokens必須
+
+    gemini:
+      # api_key は .env の GEMINI_API_KEY から読み込み
+      default_model: "gemini-2.0-flash"
+      timeout_sec: 60
+      max_retries: 3
+
+    deepseek:
+      # api_key は .env の DEEPSEEK_API_KEY から読み込み
+      default_model: "deepseek-chat"
+      timeout_sec: 60
+      max_retries: 3
+
+# ============================================================
+# エンジン設定
+# ============================================================
+engine:
+  memory_limit: 20
+  emotion_decay_rate: 0.05
+  max_move_cost: 1
+
+# ============================================================
+# Web送信設定
+# ============================================================
+web_poster:
+  batch_size: 10
+  retry_interval_sec: 30
+  max_consecutive_failures: 3
+  pause_duration_sec: 300
+
+# ============================================================
+# ログ設定
+# ============================================================
+logging:
+  level: "INFO"
+  log_dir: "logs"
+  rotation: "daily"
+  retention_days: 7
+
+# ============================================================
+# Story-emergence runtime 設定
+# ============================================================
+story_memory:
+  enabled: true
+  summarize_interval_turns: 6
+  max_injection_count: 5
+  importance_threshold: 0.25
+  response_max_tokens: 220
+  repair_max_tokens: 320
+
+narration:
+  enabled: true
+  min_interval_turns: 3
+  emotion_change_threshold: 0.25
+  include_chapter_breaks: true
+  response_max_tokens: 480
+  retry_max_tokens: 360
+  chapter_max_tokens: 120
+
+character_evolution:
+  enabled: false
+  check_interval_rounds: 1
+  max_changes_per_check: 2
+
+story_director:
+  enabled: true
+  analysis_interval_rounds: 2
+  max_active_interventions: 3
+  max_active_tensions: 5
+  tension_escalation_rounds: 4
+  stagnation_detection: true
+  intervention_strength: "moderate"
+
+novel_generator:
+  enabled: true
+  generate_on_session_end: true
+  generate_on_chapter_break: true
+  response_max_tokens: 320
+  repair_max_tokens: 480
+
+ambient_context:
+  enabled: false
+  min_duration_turns: 3
+  max_duration_turns: 8
+  max_active_body_factors: 1
+  max_active_place_factors: 1
+  max_prompt_items: 3
+  llm_phrase_enabled: true
+
+scene_management:
+  enabled: true
+  max_active_scenes_per_story: 3
+
+participation_planner:
+  enabled: true
+  max_focus_characters: 1
+  max_support_characters: 1
+  monologue_solo_rate: 0.25     # 1:1 状況でのモノローグ注入確率（推奨: 0.20-0.30）
+  monologue_group_rate: 0.15    # グループ状況でのモノローグ注入確率（推奨: 0.10-0.20）
+  advance_monologue_bonus: 0.10 # advance intent キャラへの追加確率（推奨: 0.05-0.15）
+  max_place_dialogue_lines: 10  # 滞在中に参照する会話履歴の最大件数（SLM向け推奨: 10、大型モデルなら20-30）
+
+story_hooks:
+  enabled: true
+  max_open_hooks: 12
+
+character_drives:
+  enabled: false
+  max_taboo_topics: 3
+
+relationship_dynamics:
+  enabled: true
+  trust_delta_scale: 0.12
+
+quality_guard:
+  enabled: true
+  max_group_chars: 120
+  max_reply_chars: 120
+  max_monologue_chars: 100
+  max_abstract_token_occurrences: 2
+  max_repeated_ngram_occurrences: 2
+
+growth_engine:
+  enabled: true
+  rolling_window_turns: 24
+  immediate_commit_identity_threshold: 0.80
+  response_max_tokens: 260
+  repair_max_tokens: 360
+
+episode_planner:
+  enabled: true
+  min_turns_per_episode: 4
+  max_turns_per_episode: 12
+  carry_hook_limit: 3
+  stale_rounds_before_close: 2
+
+dramatic_pressure:
+  enabled: true
+  recent_window_turns: 8
+  min_pressure_score: 0.55
+  stale_rounds_before_resolve: 2
+  max_active_pressures: 12
+
+# --- v2 upgrade: Chapter System ---
+chapter:
+  enabled: true
+  max_active_chapters: 1
+  beat_check_interval_rounds: 1
+  beat_timeout_turns: 30
+  auto_event_injection: true
+  enable_llm_beat_judgment: false
+  llm_beat_min_elapsed_turns: 5
+
+# --- v2 upgrade: Director Persona ---
+director_persona:
+  enabled: true
+  evaluation_interval_rounds: 3
+  steering_strength: moderate
+  satisfaction_decay: 0.1
+  allow_mid_chapter_swap: true
+  swap_cooldown_turns: 0
+  preserve_satisfaction_on_swap: true
+  enable_llm_evaluation: false
+  llm_eval_interval_rounds: 3
+
+# --- v2 upgrade Phase 4: Chapter Generator (半自動 Chapter 生成) ---
+chapter_generator:
+  enabled: true
+  default_beat_timeout: 20
+  include_conflict_seeds: true
+  max_events_per_beat: 2
+
+# ============================================================
+# 時事モード設定（RSS 巡回 + キャラが時事ネタをふらっと語る）
+# ============================================================
+news_mode:
+  enabled: true                          # グローバル feature flag
+  fetch_interval_sec: 1800               # RSS 巡回間隔（秒、デフォルト 30 分）
+  http_timeout_sec: 30
+  user_agent: "PocketRole/1.0 (+rss)"
+  allow_private_feed_hosts: false        # localhost/private/link-local 等の feed URL を既定で拒否
+  max_feed_bytes: 2097152                # 1 feed response の最大バイト数
+  max_entries_per_feed: 50               # 1 feed から取り込む最大 entry 数
+  max_articles_kept: 1000                # DB 内記事の上限（古いものから削除）
+  candidates_for_llm: 8                  # 興味マッチ LLM に投げる候補数
+  # ダッシュボードのプルダウンに対応する発火率プリセット
+  intensity_presets:
+    off:    { rate: 0.0,  cooldown_turns: 999 }
+    low:    { rate: 0.03, cooldown_turns: 8 }   # 控えめ（ストーリー既定値）
+    medium: { rate: 0.07, cooldown_turns: 5 }   # 中庸
+    high:   { rate: 0.12, cooldown_turns: 3 }   # 派手目
+    rate20: { rate: 0.20, cooldown_turns: 3 }   # かなり高め
+    rate30: { rate: 0.30, cooldown_turns: 3 }   # 高頻度
+    rate40: { rate: 0.40, cooldown_turns: 3 }   # 超高頻度
+    rate50: { rate: 0.50, cooldown_turns: 3 }   # ほぼ毎回狙う
+    rate80: { rate: 0.80, cooldown_turns: 1 }   # 最大（実験的・会話に頻繁に割り込む）
+
+# --- v2 upgrade: Pre-turn Scene Script (ターン前情景スクリプト) ---
+scene_script:
+  enabled: true
+  generation_mode: per_round   # per_round（ラウンド先頭のみ）or per_turn（毎ターン）
+  format_mode: directorial      # directorial（演技指導ノート・推奨）or narrative（旧式情景文）
+  injection_mode: header        # header（システムプロンプト先頭）or parallel（並列）
+  max_sentences: 3
+  reference_previous_n: 1
+  response_max_tokens: 720
+  repair_max_tokens: 960
+  max_directive_characters: 10

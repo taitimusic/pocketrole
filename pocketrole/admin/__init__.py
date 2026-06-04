@@ -1,0 +1,1 @@
+"""Hosted admin service package."""

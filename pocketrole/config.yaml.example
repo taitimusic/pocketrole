@@ -1,0 +1,178 @@
+# sandbox_platform/config.yaml.example
+# このファイルをコピーして config.yaml として使用してください:
+#   cp config.yaml.example config.yaml
+
+# ============================================================
+# LLMプロバイダー設定
+# ============================================================
+llm:
+  # クラウドAPIの同時リクエスト数上限
+  cloud_concurrency: 3
+
+  # thinking 系モデル向けのモデル別生成 profile
+  # model_profiles:
+  #   ollama:
+  #     "qwen3.5:9b":
+  #       reasoning_mode: "auto"
+  #       max_tokens: 1000
+  #       recovery_max_tokens: 1400
+  #       recovery_reasoning_mode: "off"
+
+  # プロバイダー定義
+  providers:
+    ollama:
+      base_url: "http://localhost:11434"
+      default_model: "ministral-3:14b"
+      timeout_sec: 120
+      max_retries: 3
+
+    openai:
+      # api_key は .env の OPENAI_API_KEY から読み込み
+      default_model: "gpt-5.4-nano"
+      api_mode: "auto"            # auto / chat_completions / responses
+      timeout_sec: 60
+      max_retries: 3
+      temperature: 0.8            # プロバイダーごとにデフォルト温度を設定可
+
+    anthropic:
+      # api_key は .env の ANTHROPIC_API_KEY から読み込み
+      default_model: "claude-sonnet-4-20250514"
+      timeout_sec: 60
+      max_retries: 3
+      max_tokens: 300             # Anthropicはmax_tokens必須
+
+    gemini:
+      # api_key は .env の GEMINI_API_KEY から読み込み
+      default_model: "gemini-2.0-flash"
+      timeout_sec: 60
+      max_retries: 3
+
+    deepseek:
+      # api_key は .env の DEEPSEEK_API_KEY から読み込み
+      default_model: "deepseek-chat"
+      timeout_sec: 60
+      max_retries: 3
+
+# ============================================================
+# エンジン設定
+# ============================================================
+engine:
+  memory_limit: 20
+  emotion_decay_rate: 0.05
+  max_move_cost: 1
+
+# ============================================================
+# Web送信設定
+# ============================================================
+web_poster:
+  batch_size: 10
+  retry_interval_sec: 30
+  max_consecutive_failures: 3
+  pause_duration_sec: 300
+
+# ============================================================
+# ログ設定
+# ============================================================
+logging:
+  level: "INFO"
+  log_dir: "logs"
+  rotation: "daily"
+  retention_days: 7
+
+# ============================================================
+# アップグレード機能設定
+# この example は初回から拡張機能を有効にする前提
+# ============================================================
+story_memory:
+  enabled: true
+  summarize_interval_turns: 10
+  max_injection_count: 5
+  importance_threshold: 0.3
+  response_max_tokens: 220
+  repair_max_tokens: 320
+
+narration:
+  enabled: true
+  min_interval_turns: 3
+  emotion_change_threshold: 0.3
+  include_chapter_breaks: true
+  response_max_tokens: 480
+  retry_max_tokens: 360
+  chapter_max_tokens: 120
+
+character_evolution:
+  enabled: true
+  check_interval_rounds: 1
+  max_changes_per_check: 2
+
+story_director:
+  enabled: true
+  analysis_interval_rounds: 3
+  max_active_interventions: 3
+  max_active_tensions: 5
+  tension_escalation_rounds: 5
+  stagnation_detection: true
+  intervention_strength: "moderate"
+
+novel_generator:
+  enabled: true
+  generate_on_session_end: true
+  generate_on_chapter_break: true
+  response_max_tokens: 320
+  repair_max_tokens: 480
+
+ambient_context:
+  enabled: false
+  min_duration_turns: 3
+  max_duration_turns: 8
+  max_active_body_factors: 1
+  max_active_place_factors: 1
+  max_prompt_items: 3
+  llm_phrase_enabled: true
+
+scene_management:
+  enabled: false
+  max_active_scenes_per_story: 3
+
+participation_planner:
+  enabled: false
+  max_focus_characters: 2
+  max_support_characters: 2
+
+story_hooks:
+  enabled: false
+  max_open_hooks: 10
+
+character_drives:
+  enabled: false
+  max_taboo_topics: 3
+
+relationship_dynamics:
+  enabled: false
+  trust_delta_scale: 0.1
+
+quality_guard:
+  enabled: false
+  max_group_chars: 180
+  max_reply_chars: 140
+  max_monologue_chars: 110
+  max_abstract_token_occurrences: 3
+  max_repeated_ngram_occurrences: 2
+
+growth_engine:
+  enabled: false
+  rolling_window_turns: 24
+  immediate_commit_identity_threshold: 0.80
+  response_max_tokens: 260
+  repair_max_tokens: 360
+
+scene_script:
+  enabled: false
+  generation_mode: per_round
+  format_mode: directorial
+  injection_mode: header
+  max_sentences: 3
+  reference_previous_n: 1
+  response_max_tokens: 720
+  repair_max_tokens: 960
+  max_directive_characters: 10

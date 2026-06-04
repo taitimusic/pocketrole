@@ -1,0 +1,30 @@
+{
+  "story_id": "ankoku_gakuen_mystery",
+  "characters": [
+    {
+      "id": "yokaze_yuuma",
+      "name": "夜風ユウマ",
+      "name_reading": "よかぜゆうま"
+    },
+    {
+      "id": "hoshikaze_runa",
+      "name": "星風ルナ",
+      "name_reading": "ほしかぜるな"
+    },
+    {
+      "id": "miritia",
+      "name": "ミリティア",
+      "name_reading": "みりてぃあ"
+    },
+    {
+      "id": "kamiizumi_souma",
+      "name": "上泉ソーマ",
+      "name_reading": "かみいずみそうま"
+    },
+    {
+      "id": "chururun",
+      "name": "ちゅるるん",
+      "name_reading": "ちゅるるん"
+    }
+  ]
+}

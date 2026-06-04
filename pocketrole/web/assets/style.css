@@ -1,0 +1,438 @@
+/* assets/style.css — PocketRole タイムラインビューアー */
+
+/* CSS変数 */
+:root {
+  --bg: #1a1a2e;
+  --surface: #16213e;
+  --accent: #0f3460;
+  --bubble-self: #e94560;
+  --bubble-other: #2a2a4a;
+  --text: #eaeaea;
+  --meta: #888;
+  --move: #555;
+}
+
+/* リセット・ベース */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ヘッダー */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--accent);
+}
+
+header h1 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--text);
+}
+
+#poll-status {
+  font-size: 0.75rem;
+  color: var(--meta);
+}
+
+#header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+#story-switcher,
+.locale-switcher {
+  background: var(--accent);
+  color: var(--text);
+  border: 1px solid var(--bubble-other);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.locale-switcher {
+  min-height: 30px;
+}
+
+.secondary-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 0 10px;
+  border: 1px solid var(--bubble-other);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.76rem;
+  background: rgba(15, 52, 96, 0.72);
+}
+
+.replay-cta {
+  min-height: 38px;
+  padding: 0 14px;
+  border-color: rgba(251, 191, 36, 0.78);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.96), rgba(249, 115, 22, 0.96));
+  color: #111827;
+  font-weight: 800;
+  box-shadow: 0 10px 24px rgba(249, 115, 22, 0.28);
+}
+
+.replay-cta:hover,
+.replay-cta:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(249, 115, 22, 0.34);
+  outline: 2px solid rgba(251, 191, 36, 0.42);
+  outline-offset: 2px;
+}
+
+/* メインコンテンツ */
+main {
+  height: calc(100vh - 49px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* タイムライン */
+#timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+#jump-latest {
+  position: absolute;
+  right: 16px;
+  bottom: 20px;
+  z-index: 5;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: rgba(15, 52, 96, 0.96);
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#jump-latest.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* スクロールバー */
+#timeline::-webkit-scrollbar {
+  width: 6px;
+}
+#timeline::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+#timeline::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
+
+/* ログエントリ共通 */
+.log-entry {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+/* 吹き出し（monologue / reply / group / current_affairs 等） */
+.bubble {
+  position: relative;
+  border-radius: 12px;
+  padding: 10px 14px;
+  word-break: break-word;
+  max-width: 600px;
+  background: var(--bubble-other);  /* 未知 msg_type のフォールバック */
+}
+
+.log-entry.monologue .bubble {
+  background: var(--bubble-other);
+}
+
+.log-entry.reply .bubble {
+  background: var(--accent);
+}
+
+.log-entry.group .bubble {
+  background: var(--bubble-other);
+  border: 1px solid var(--accent);
+}
+
+/* 移動コメント */
+.log-entry.move_comment {
+  justify-content: center;
+  font-size: 0.72rem;
+  color: var(--move);
+  font-style: italic;
+  padding: 4px 0;
+  position: relative;
+}
+
+.log-entry.move_comment::before,
+.log-entry.move_comment::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid var(--accent);
+  opacity: 0.3;
+  margin: 0 12px;
+}
+
+/* ── narration entries ─────────────────────────────────────── */
+.log-entry.narration {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.4rem 1rem;
+}
+
+.narration-bubble {
+  max-width: 680px;
+  width: 100%;
+  padding: 0.8rem 1.4rem;
+  border-radius: 6px;
+  font-style: italic;
+  line-height: 1.75;
+  text-align: center;
+  color: #c9b8e8;
+  background: rgba(30, 20, 60, 0.55);
+  border-left: 3px solid #6a4faa;
+}
+
+.narration-type-label {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--meta);
+  margin-bottom: 0.25rem;
+}
+
+/* chapter: 見出し風 */
+.log-entry.narration_chapter .narration-bubble {
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-left: none;
+  border-top: 1px solid #6a4faa;
+  border-bottom: 1px solid #6a4faa;
+  background: rgba(40, 20, 80, 0.45);
+}
+
+/* foreshadow: 不穏な赤み */
+.log-entry.narration_foreshadow .narration-bubble {
+  color: #d4a0a0;
+  border-left-color: #8b3a3a;
+  background: rgba(40, 10, 10, 0.55);
+}
+
+/* transition: 控えめ */
+.log-entry.narration_transition .narration-bubble {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  border-left: none;
+  background: transparent;
+}
+
+/* アバター（CSSで生成、初期文字表示） */
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #fff;
+  user-select: none;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.avatar.has-image {
+  background: #0b1020;
+}
+
+.avatar-image {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 表情別アバター色 */
+.avatar.happy     { background: #f4a261; }
+.avatar.angry     { background: #e76f51; }
+.avatar.sad       { background: #457b9d; }
+.avatar.surprised { background: #8338ec; }
+.avatar.worried   { background: #6d6875; }
+.avatar.content   { background: #52b788; }
+.avatar.lonely    { background: #4cc9f0; }
+.avatar.tired     { background: #adb5bd; }
+.avatar.neutral   { background: #0f3460; }
+
+/* バブルラップ */
+.bubble-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+/* 吹き出し口 — .bubble の縁に張り付ける（char-name の高さに依存しない） */
+.bubble::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: -8px;
+  border: 8px solid transparent;
+  border-right-color: var(--bubble-other);
+  border-left: 0;
+}
+
+.log-entry.reply .bubble::before {
+  border-right-color: var(--accent);
+}
+
+.log-entry.group .bubble::before {
+  border-right-color: var(--bubble-other);
+}
+
+/* メタ情報 */
+.char-name {
+  font-size: 0.75rem;
+  color: var(--meta);
+  margin-bottom: 4px;
+}
+
+.meta {
+  font-size: 0.7rem;
+  color: var(--meta);
+  margin-top: 4px;
+}
+
+/* フェードインアニメーション */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.new-entry {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* ── inline link (時事モード記事タイトル等) ── */
+.bubble a,
+.narration-text a {
+  color: #fbbf24;
+  text-decoration: none;
+  background-image: linear-gradient(
+    transparent 60%,
+    rgba(251, 191, 36, 0.22) 60%
+  );
+  padding: 0 2px;
+  border-radius: 3px;
+  transition: background-color 0.18s ease, color 0.18s ease;
+  word-break: break-word;
+}
+
+.bubble a:hover,
+.narration-text a:hover {
+  color: #fde68a;
+  background-color: rgba(251, 191, 36, 0.18);
+  background-image: none;
+}
+
+.bubble a:focus-visible,
+.narration-text a:focus-visible {
+  outline: 2px solid rgba(251, 191, 36, 0.6);
+  outline-offset: 2px;
+}
+
+.news-link-message {
+  display: inline;
+}
+
+.news-link-quote {
+  color: #fcd34d;
+  font-weight: 800;
+}
+
+.bubble .news-link-title,
+.narration-text .news-link-title {
+  display: inline;
+  padding: 2px 8px;
+  border: 1px solid rgba(251, 191, 36, 0.62);
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.96), rgba(249, 115, 22, 0.92));
+  color: #111827;
+  font-weight: 800;
+  line-height: 1.85;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+  word-break: normal;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.18);
+}
+
+.bubble .news-link-title:hover,
+.narration-text .news-link-title:hover {
+  color: #111827;
+  background: linear-gradient(135deg, #fde68a, #fb923c);
+  box-shadow: 0 6px 18px rgba(249, 115, 22, 0.26);
+}
+
+.news-link-reaction {
+  margin-left: 0.25em;
+}
+
+/* レスポンシブ */
+@media (max-width: 600px) {
+  .bubble {
+    max-width: 100%;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 0.75rem;
+  }
+
+  #jump-latest {
+    right: 12px;
+    bottom: 16px;
+    padding: 9px 12px;
+  }
+}

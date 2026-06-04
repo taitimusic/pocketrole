@@ -1,0 +1,7 @@
+{
+  "story_id": "ankoku_gakuen_2",
+  "enabled": true,
+  "story_default": "story_bgm.mp3",
+  "place_overrides": {},
+  "mood_overrides": {}
+}

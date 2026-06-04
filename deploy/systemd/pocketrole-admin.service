@@ -1,0 +1,18 @@
+[Unit]
+Description=PocketRole hosted admin service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/pocketrole/pocketrole
+EnvironmentFile=/etc/pocketrole/pocketrole-admin.env
+ExecStart=/var/www/pocketrole/pocketrole/.venv/bin/python -m admin.main
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=30
+
+[Install]
+WantedBy=multi-user.target

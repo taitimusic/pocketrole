@@ -1,0 +1,9 @@
+ankoku_gakuen:
+  enabled: true
+  receiver_url: "https://example.com/receiver.php"
+  auth_token: "replace-me"
+
+another_story:
+  enabled: false
+  receiver_url: ""
+  auth_token: ""

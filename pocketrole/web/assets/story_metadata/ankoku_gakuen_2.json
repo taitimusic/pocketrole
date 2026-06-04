@@ -1,0 +1,40 @@
+{
+  "story_id": "ankoku_gakuen_2",
+  "characters": [
+    {
+      "id": "hoshikaze_runa",
+      "name": "星風ルナ",
+      "name_reading": "ほしかぜるな"
+    },
+    {
+      "id": "chururun",
+      "name": "ちゅるるん",
+      "name_reading": "ちゅるるん"
+    },
+    {
+      "id": "yokaze_yuuma",
+      "name": "夜風ユウマ",
+      "name_reading": "よかぜゆうま"
+    },
+    {
+      "id": "miritia",
+      "name": "ミリティア",
+      "name_reading": "みりてぃあ"
+    },
+    {
+      "id": "kamiizumi_souma",
+      "name": "上泉ソーマ",
+      "name_reading": "かみいずみそーま"
+    },
+    {
+      "id": "yukkuri_reimu",
+      "name": "ゆっくり霊夢",
+      "name_reading": "ゆっくりれいむ"
+    },
+    {
+      "id": "yukkuri_marisa",
+      "name": "ゆっくり魔理沙",
+      "name_reading": "ゆっくりまりさ"
+    }
+  ]
+}

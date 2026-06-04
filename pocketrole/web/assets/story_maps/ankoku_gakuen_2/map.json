@@ -1,0 +1,20 @@
+{
+  "background": "background.svg",
+  "camera": {
+    "zoom": 1.12,
+    "safe_margin": 72
+  },
+  "places": [
+    { "place_id": "music_room", "x": 240, "y": 180, "label": "music_room" },
+    { "place_id": "school_gate", "x": 220, "y": 540, "label": "school_gate" },
+    { "place_id": "town_park", "x": 240, "y": 880, "label": "town_park" },
+    { "place_id": "cafeteria", "x": 940, "y": 180, "label": "cafeteria" },
+    { "place_id": "classroom", "x": 940, "y": 540, "label": "classroom" },
+    { "place_id": "music_shop", "x": 940, "y": 880, "label": "music_shop" },
+    { "place_id": "home", "x": 1720, "y": 180, "label": "home" },
+    { "place_id": "corridor", "x": 1720, "y": 540, "label": "corridor" },
+    { "place_id": "library", "x": 1720, "y": 880, "label": "library" },
+    { "place_id": "rooftop", "x": 2480, "y": 180, "label": "rooftop" },
+    { "place_id": "unknown", "x": 2480, "y": 880, "label": "unknown" }
+  ]
+}

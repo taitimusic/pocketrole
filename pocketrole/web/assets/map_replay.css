@@ -1,0 +1,198 @@
+/* assets/map_replay.css — Phaser ベースのマップ再生ビューアー */
+
+:root {
+  --bg: #0f172a;
+  --surface: rgba(15, 23, 42, 0.74);
+  --surface-alt: rgba(30, 41, 59, 0.82);
+  --line: rgba(148, 163, 184, 0.2);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #f59e0b;
+  --accent-strong: #fb7185;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.12), transparent 30%),
+    linear-gradient(180deg, #111827, #0f172a 45%, #0b1220);
+  color: var(--text);
+  font-family: 'Hiragino Sans', 'Noto Sans JP', sans-serif;
+}
+
+body {
+  padding: 18px;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.page-header h1 {
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+
+.page-subtitle {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.page-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.page-nav a,
+.locale-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  background: rgba(21, 34, 56, 0.82);
+}
+
+.locale-switcher {
+  cursor: pointer;
+}
+
+.page-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.replay-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 10px 12px;
+  width: fit-content;
+  backdrop-filter: blur(8px);
+}
+
+.replay-controls button,
+.replay-controls select,
+.replay-controls input[type='range'] {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-alt);
+  color: var(--text);
+  min-height: 40px;
+  padding: 0 12px;
+  font: inherit;
+}
+
+.replay-controls button {
+  cursor: pointer;
+}
+
+.replay-controls label {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.bgm-volume {
+  width: 128px;
+  padding: 0;
+  accent-color: var(--accent);
+}
+
+.stage-shell {
+  position: relative;
+}
+
+#map-stage {
+  width: 100%;
+  min-height: calc(100vh - 150px);
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(245, 158, 11, 0.18);
+  background: linear-gradient(180deg, rgba(17, 24, 39, 0.98), rgba(15, 23, 42, 0.98));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.3);
+}
+
+#map-stage canvas {
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+}
+
+.minimal-hud {
+  position: absolute;
+  left: 18px;
+  bottom: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(15, 23, 42, 0.76);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  font-size: 0.82rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+}
+
+.minimal-hud span {
+  white-space: nowrap;
+}
+
+.unsupported-state {
+  position: absolute;
+  inset: 50% auto auto 50%;
+  transform: translate(-50%, -50%);
+  max-width: 460px;
+  padding: 18px 20px;
+  border-radius: 18px;
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  background: rgba(15, 23, 42, 0.9);
+  color: var(--text);
+  text-align: center;
+  line-height: 1.7;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+}
+
+@media (max-width: 900px) {
+  body {
+    padding: 12px;
+  }
+
+  .page-header {
+    flex-direction: column;
+  }
+
+  #map-stage {
+    min-height: calc(100vh - 180px);
+  }
+
+  .minimal-hud {
+    right: 12px;
+    left: 12px;
+    bottom: 12px;
+    border-radius: 18px;
+  }
+}

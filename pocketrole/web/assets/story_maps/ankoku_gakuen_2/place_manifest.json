@@ -1,0 +1,80 @@
+{
+  "story_id": "ankoku_gakuen_2",
+  "places": [
+    {
+      "place_id": "classroom",
+      "label": "教室",
+      "expected_image": "images/classroom_320.png"
+    },
+    {
+      "place_id": "rooftop",
+      "label": "屋上",
+      "expected_image": "images/rooftop_320.png"
+    },
+    {
+      "place_id": "music_room",
+      "label": "音楽室",
+      "expected_image": "images/music_room_320.png"
+    },
+    {
+      "place_id": "gym",
+      "label": "体育館",
+      "expected_image": "images/gym_320.png"
+    },
+    {
+      "place_id": "corridor",
+      "label": "廊下",
+      "expected_image": "images/corridor_320.png"
+    },
+    {
+      "place_id": "cafeteria",
+      "label": "食堂",
+      "expected_image": "images/cafeteria_320.png"
+    },
+    {
+      "place_id": "library",
+      "label": "図書室",
+      "expected_image": "images/library_320.png"
+    },
+    {
+      "place_id": "school_gate",
+      "label": "校門",
+      "expected_image": "images/school_gate_320.png"
+    },
+    {
+      "place_id": "town_park",
+      "label": "公園",
+      "expected_image": "images/town_park_320.png"
+    },
+    {
+      "place_id": "music_shop",
+      "label": "楽器店",
+      "expected_image": "images/music_shop_320.png"
+    },
+    {
+      "place_id": "home",
+      "label": "自宅",
+      "expected_image": "images/home_320.png"
+    },
+    {
+      "place_id": "junk_yard",
+      "label": "ガラクタ置き場",
+      "expected_image": "images/junk_yard_320.png"
+    },
+    {
+      "place_id": "basement_storage",
+      "label": "練習棟地下倉庫",
+      "expected_image": "images/basement_storage_320.png"
+    },
+    {
+      "place_id": "practice_hall",
+      "label": "練習ホール",
+      "expected_image": "images/practice_hall_320.png"
+    },
+    {
+      "place_id": "snack_area",
+      "label": "購買前",
+      "expected_image": "images/snack_area_320.png"
+    }
+  ]
+}

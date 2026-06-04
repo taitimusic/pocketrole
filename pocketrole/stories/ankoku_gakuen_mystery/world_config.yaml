@@ -1,0 +1,484 @@
+# world_config.yaml — 暗黒学園 連続怪事件
+
+story:
+  id: "ankoku_gakuen_mystery"
+  title: "暗黒学園 連続怪事件"
+  description: "学園内で頻発する殺人・変死・失踪事件に、5人の生徒がそれぞれのやり方で踏み込み、隠蔽と共犯と長期の謎を追う探偵アニメ群像劇"
+  season_start: "2025-04-01"
+  turn_minutes: 30
+  turn_interval_sec: 45
+  world_rules: |
+    この世界は、日本の私立高校「暗黒学園」が舞台。
+    学園では殺人、変死、失踪、偽装事故、脅迫が不自然な頻度で起きるが、
+    大人たちの対応は遅く、噂と隠蔽が真相より先に広がる。
+    主要キャラクターたちは警察ではなく生徒だが、それぞれ別の理由で事件へ踏み込む。
+    物語は「誰が犯人か」だけでなく、「誰が何を隠し、誰を庇い、どの秘密が次の事件を呼ぶか」で進む。
+    恋愛は主題ではなく、疑念、保護欲、共犯感、後ろめたさが人間関係を揺らす。
+
+places:
+  - id: "classroom"
+    label: "教室"
+    zone: "school"
+    atmosphere: "表向きは日常だが、視線、噂、欠席者の話題がじわじわ広がる"
+    who_gathers: "授業時間中は全員"
+    events_likely:
+      - "授業"
+      - "欠席者の噂"
+      - "匿名メモの回収"
+      - "机やロッカーへの違和感"
+    access_note: "授業時間中の基本位置。ほとんどの情報はここから広がる"
+    adjacent_places:
+      corridor: 1
+
+  - id: "corridor"
+    label: "廊下"
+    zone: "school"
+    atmosphere: "すれ違い、立ち聞き、呼び止め、視線の逃げが最も起きやすい中継地点"
+    who_gathers: "全員（移動時）"
+    events_likely:
+      - "立ち聞き"
+      - "急な呼び出し"
+      - "目撃証言"
+      - "すれ違いざまの挑発"
+    access_note: "学校内の主要移動経路"
+    adjacent_places:
+      classroom: 1
+      rooftop: 2
+      library: 1
+      cafeteria: 1
+      nurse_office: 1
+      student_council_room: 1
+      archive_room: 2
+      old_school_building: 3
+      school_gate: 2
+
+  - id: "rooftop"
+    label: "屋上"
+    zone: "school"
+    atmosphere: "逃避、密談、決裂前の会話が起きやすい風の強い避難所"
+    who_gathers: "ユウマ、ルナ、ちゅるるん"
+    events_likely:
+      - "口論の果ての沈黙"
+      - "秘密の打ち明け"
+      - "一人での整理"
+      - "誰かを待つ"
+    access_note: "授業中は本来立入禁止だが、実際にはよく使われる"
+    adjacent_places:
+      corridor: 2
+
+  - id: "library"
+    label: "図書室"
+    zone: "school"
+    atmosphere: "静かだが、古い記録と遠慮した嘘が溜まりやすい"
+    who_gathers: "ルナ、ソウマ"
+    events_likely:
+      - "過去事件の調査"
+      - "静かな尋問"
+      - "欠けた資料の発見"
+      - "沈黙を挟んだ会話"
+    access_note: "放課後も利用可。資料室に近い"
+    adjacent_places:
+      corridor: 1
+      archive_room: 1
+
+  - id: "student_council_room"
+    label: "生徒会室"
+    zone: "school"
+    atmosphere: "表向きは秩序、裏では根回しと密談が行われる狭い権力室"
+    who_gathers: "ソウマ、学園運営に近い生徒"
+    events_likely:
+      - "根回し"
+      - "口裏合わせ"
+      - "処分の相談"
+      - "事件対応の名目の隠蔽"
+    access_note: "放課後の出入りが目立つと噂になる"
+    adjacent_places:
+      corridor: 1
+
+  - id: "nurse_office"
+    label: "保健室"
+    zone: "school"
+    atmosphere: "一時的な逃げ場。弱音も嘘も出やすい"
+    who_gathers: "ルナ、体調不良者、事情を抱えた生徒"
+    events_likely:
+      - "体調不良"
+      - "応急処置"
+      - "本音の漏れ"
+      - "目撃後の避難"
+    access_note: "授業中でも入りやすいが、長居は目につく"
+    adjacent_places:
+      corridor: 1
+
+  - id: "archive_room"
+    label: "資料室"
+    zone: "school"
+    atmosphere: "鍵付き棚と埃の匂い。古い記録と改ざんの痕跡が眠る"
+    who_gathers: "ソウマ、ルナ、記録に興味のある生徒"
+    events_likely:
+      - "欠落資料の捜索"
+      - "証拠の持ち出し"
+      - "記録改ざんの発見"
+      - "過去事件への接続"
+    access_note: "本来は許可制。無断利用は大きな火種になる"
+    adjacent_places:
+      corridor: 2
+      library: 1
+      old_school_building: 2
+
+  - id: "old_school_building"
+    label: "旧校舎"
+    zone: "school"
+    atmosphere: "封鎖と噂が積もる危険地帯。足音がよく響く"
+    who_gathers: "ユウマ、ちゅるるん、夜に何かを隠したい者"
+    events_likely:
+      - "立入禁止エリアへの侵入"
+      - "遺留品の発見"
+      - "待ち伏せ"
+      - "模倣犯の痕跡"
+    access_note: "昼でも人気が少ない。夜は完全に異常"
+    adjacent_places:
+      corridor: 3
+      archive_room: 2
+      school_gate: 3
+      back_alley: 2
+
+  - id: "cafeteria"
+    label: "食堂"
+    zone: "school"
+    atmosphere: "噂が最も早く形になる、騒がしい観測地点"
+    who_gathers: "全員（昼休み）"
+    events_likely:
+      - "噂話"
+      - "誰かへの視線集中"
+      - "派閥の形成"
+      - "軽口からの炎上"
+    access_note: "昼休み中心。放課後は比較的静か"
+    adjacent_places:
+      corridor: 1
+
+  - id: "school_gate"
+    label: "校門"
+    zone: "school"
+    atmosphere: "登下校の境界。呼び止め、待ち伏せ、別れが起きやすい"
+    who_gathers: "全員（登下校時）"
+    events_likely:
+      - "待ち伏せ"
+      - "匿名の受け渡し"
+      - "登校拒否寸前の逡巡"
+      - "帰宅前の密談"
+    access_note: "朝夕の出入りが最も多い"
+    adjacent_places:
+      corridor: 2
+      old_school_building: 3
+      back_alley: 2
+      home: 4
+
+  - id: "back_alley"
+    label: "裏路地"
+    zone: "town"
+    atmosphere: "人気が少なく、噂にならない取引と追跡が起きる"
+    who_gathers: "ミリティア、ちゅるるん、表を避けたい者"
+    events_likely:
+      - "裏取引"
+      - "追跡"
+      - "脅迫の受け渡し"
+      - "夜の待ち合わせ"
+    access_note: "校門から少し離れた場所。夜は特に危険"
+    adjacent_places:
+      school_gate: 2
+      old_school_building: 2
+      home: 3
+
+  - id: "home"
+    label: "自宅"
+    zone: "home"
+    atmosphere: "一人になれるが、事件の余韻が色濃く残る私的空間"
+    who_gathers: "各キャラクター（夜間・就寝時）"
+    events_likely:
+      - "思い返し"
+      - "匿名メッセージの確認"
+      - "眠れない夜"
+      - "隠していた証拠の処理"
+    access_note: "夜22時以降の基本位置"
+    adjacent_places:
+      school_gate: 4
+      back_alley: 3
+
+time_schedules:
+  - day_type: "weekday"
+    time_from: "07:00"
+    time_to: "08:30"
+    label: "登校"
+    expected_places:
+      - "school_gate"
+      - "corridor"
+    mood_modifier: 0.0
+    anomaly_note: "この時間に旧校舎や資料室にいる場合は異常"
+
+  - day_type: "weekday"
+    time_from: "08:30"
+    time_to: "12:00"
+    label: "午前授業"
+    expected_places:
+      - "classroom"
+    mood_modifier: -0.1
+    anomaly_note: "授業中に旧校舎・資料室・町エリアにいる場合は異常"
+
+  - day_type: "weekday"
+    time_from: "12:00"
+    time_to: "13:00"
+    label: "昼休み"
+    expected_places:
+      - "cafeteria"
+      - "corridor"
+      - "rooftop"
+      - "library"
+    mood_modifier: 0.15
+    anomaly_note: null
+
+  - day_type: "weekday"
+    time_from: "13:00"
+    time_to: "16:30"
+    label: "午後授業"
+    expected_places:
+      - "classroom"
+    mood_modifier: -0.15
+    anomaly_note: "授業中に学校外や立入制限エリアにいる場合は異常"
+
+  - day_type: "weekday"
+    time_from: "16:30"
+    time_to: "18:30"
+    label: "放課後"
+    expected_places:
+      - "library"
+      - "cafeteria"
+      - "student_council_room"
+      - "rooftop"
+      - "corridor"
+    mood_modifier: 0.25
+    anomaly_note: "この時間に旧校舎へ向かう場合は火種になりやすい"
+
+  - day_type: "weekday"
+    time_from: "18:30"
+    time_to: "22:00"
+    label: "夕方"
+    expected_places:
+      - "home"
+      - "school_gate"
+      - "back_alley"
+    mood_modifier: 0.0
+    anomaly_note: "21時以降に一人で町エリアを歩いている場合は要注意"
+
+  - day_type: "weekday"
+    time_from: "22:00"
+    time_to: "07:00"
+    label: "就寝"
+    expected_places:
+      - "home"
+    mood_modifier: -0.2
+    anomaly_note: "就寝時間に旧校舎・資料室・生徒会室にいる場合は異常"
+
+  - day_type: "weekend"
+    time_from: "09:00"
+    time_to: "12:00"
+    label: "午前（自由）"
+    expected_places:
+      - "home"
+      - "library"
+      - "school_gate"
+    mood_modifier: 0.1
+    anomaly_note: null
+
+  - day_type: "weekend"
+    time_from: "12:00"
+    time_to: "17:00"
+    label: "午後（自由）"
+    expected_places:
+      - "library"
+      - "cafeteria"
+      - "rooftop"
+      - "school_gate"
+    mood_modifier: 0.2
+    anomaly_note: null
+
+  - day_type: "weekend"
+    time_from: "17:00"
+    time_to: "21:00"
+    label: "夕方（自由）"
+    expected_places:
+      - "home"
+      - "school_gate"
+      - "back_alley"
+    mood_modifier: 0.05
+    anomaly_note: "人の少ない場所での待ち合わせが起こりやすい"
+
+  - day_type: "weekend"
+    time_from: "21:00"
+    time_to: "09:00"
+    label: "夜〜就寝"
+    expected_places:
+      - "home"
+    mood_modifier: -0.1
+    anomaly_note: "夜間に旧校舎や町エリアへ出る場合は異常"
+
+event_calendar:
+  - event_date: "04-01"
+    name: "始業式と旧事件の噂"
+    duration_days: 1
+    atmosphere: "新学期のざわめきと、去年の事故をめぐる不穏な噂が同時に広がる"
+    emotion_impact:
+      excitement: 0.2
+      stress: 0.2
+      loneliness: -0.1
+    force_place: "classroom"
+
+  - event_date: "04-07"
+    name: "旧校舎一部立入再開"
+    duration_days: 1
+    atmosphere: "封鎖の緩みと好奇心が危険な探索を呼ぶ"
+    emotion_impact:
+      excitement: 0.3
+      stress: 0.15
+      motivation: 0.1
+    force_place: null
+
+  - event_date: "05-13"
+    name: "創立記念資料公開"
+    duration_days: 1
+    atmosphere: "古い記録が一部公開され、欠けている名前や記述が話題になる"
+    emotion_impact:
+      motivation: 0.15
+      stress: 0.1
+      loneliness: 0.05
+    force_place: "archive_room"
+
+  - event_date: "06-21"
+    name: "夜間巡回強化週間"
+    duration_days: 5
+    atmosphere: "夜の出入りに神経質な空気が生まれ、隠し事の難度が上がる"
+    emotion_impact:
+      stress: 0.2
+      motivation: 0.05
+      excitement: 0.1
+    force_place: null
+
+  - event_date: "07-18"
+    name: "終業式前の追悼集会"
+    duration_days: 1
+    atmosphere: "過去の死者が表向きにだけ悼まれ、何も終わっていない気配が残る"
+    emotion_impact:
+      stress: 0.25
+      loneliness: 0.1
+      excitement: -0.1
+    force_place: "classroom"
+
+  - event_date: "09-01"
+    name: "二学期始業"
+    duration_days: 1
+    atmosphere: "夏のあいだに消えたものと、戻ってきた噂が再点火する"
+    emotion_impact:
+      stress: 0.1
+      loneliness: -0.05
+      excitement: 0.1
+    force_place: "classroom"
+
+  - event_date: "09-18"
+    name: "匿名告発文の拡散"
+    duration_days: 2
+    atmosphere: "誰が書いたか分からない告発文が広まり、全員が証言者にも容疑者にも見え始める"
+    emotion_impact:
+      stress: 0.3
+      motivation: 0.15
+      loneliness: 0.1
+    force_place: null
+
+  - event_date: "10-31"
+    name: "慰霊灯籠夜"
+    duration_days: 1
+    atmosphere: "追悼の名目で、見たくない過去が表に浮く"
+    emotion_impact:
+      stress: 0.2
+      loneliness: 0.15
+      excitement: 0.05
+    force_place: null
+
+  - event_date: "12-24"
+    name: "冬期校舎封鎖"
+    duration_days: 3
+    atmosphere: "人気のない校舎と警戒の目が、かえって秘密の移動を際立たせる"
+    emotion_impact:
+      stress: 0.15
+      motivation: 0.05
+      loneliness: 0.1
+    force_place: null
+
+anomaly_rules:
+  - label: "深夜の旧校舎"
+    condition_json:
+      time_from: "22:00"
+      time_to: "07:00"
+      place: "old_school_building"
+    drama_potential: "封鎖区域、遺留品、待ち伏せ、模倣犯の痕跡が重なりやすい"
+    suggested_reasons:
+      - "誰かを待っている"
+      - "隠した物や捨てた物を取りに来た"
+      - "過去事件の続きを確かめに来た"
+
+  - label: "授業中の資料室探索"
+    condition_json:
+      time_from: "08:30"
+      time_to: "16:30"
+      place: "archive_room"
+      expected_place: "classroom"
+    drama_potential: "記録改ざん、盗み見、証拠の持ち出しが起きやすい"
+    suggested_reasons:
+      - "欠けた名前を調べたい"
+      - "誰かの記録を消したい"
+      - "事件の真相に関わる紙を探している"
+
+  - label: "保健室への長期避難"
+    condition_json:
+      place: "nurse_office"
+      consecutive_days_min: 3
+      time_exclude:
+        - "12:00-13:00"
+    drama_potential: "目撃後の動揺、脅迫、心身の限界、口封じへの怯えが蓄積している"
+    suggested_reasons:
+      - "事件を見たのに言い出せない"
+      - "誰かに怯えて教室へ戻れない"
+      - "体調不良を装って時間を稼いでいる"
+
+  - label: "夜の校門外徘徊"
+    condition_json:
+      time_from: "21:00"
+      time_to: "07:00"
+      zone: "town"
+      alone: true
+    drama_potential: "脅迫の受け渡し、尾行、逃避、秘密の回収が起きやすい"
+    suggested_reasons:
+      - "家に帰れない事情がある"
+      - "誰かから呼び出されている"
+      - "事件の証拠を処理しようとしている"
+
+  - label: "放課後の生徒会室密談"
+    condition_json:
+      place: "student_council_room"
+      multiple_characters: true
+      stress_threshold_min: 0.6
+    drama_potential: "口裏合わせ、責任転嫁、処分回避の相談が爆発しやすい"
+    suggested_reasons:
+      - "事件の扱いを内部で決めている"
+      - "誰を切り捨てるか相談している"
+      - "守りたい相手のために嘘を固めている"
+
+  - label: "昼休みの校門受け渡し"
+    condition_json:
+      place: "school_gate"
+      time_from: "12:00"
+      time_to: "13:00"
+      multiple_characters: true
+    drama_potential: "匿名メモ、証拠品、脅迫文、口止めの金が動きやすい"
+    suggested_reasons:
+      - "人目のある短時間で危険物を渡したい"
+      - "授業中に持っていられない物を処理したい"
+      - "直接会うのは怖いが、今すぐ何かを伝えたい"

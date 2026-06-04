@@ -1,0 +1,16 @@
+active_profile: "ollama_local"
+
+profiles:
+  ollama_local:
+    provider: "ollama"
+    model: "ministral-3:14b"
+
+  openai_nano:
+    provider: "openai"
+    model: "gpt-5.4-nano"
+
+  openai_mini:
+    provider: "openai"
+    model: "gpt-5-mini"
+
+story_overrides: {}

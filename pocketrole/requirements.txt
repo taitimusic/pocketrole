@@ -1,0 +1,22 @@
+# === コア ===
+aiohttp>=3.9.0          # 非同期HTTP（Ollama API + Web送信）
+pyyaml>=6.0             # YAML読み込み
+python-dotenv>=1.0.0    # .env読み込み
+aiosqlite==0.21.0       # 非同期SQLite（0.22系接続ハング回避のため固定）
+Pillow>=10.0.0          # 表情シート切り出し
+
+# === LLMプロバイダー（使用するもののみインストールすればよい） ===
+openai>=1.30.0          # OpenAI / DeepSeek（OpenAI互換）
+anthropic>=0.30.0       # Anthropic Claude
+google-generativeai>=0.7.0  # Google Gemini
+# ※ Ollama は aiohttp で直接通信するため追加パッケージ不要
+
+# === バリデーション ===
+jsonschema>=4.20.0      # YAMLバリデーション（任意）
+
+# === RSS 巡回（時事モード） ===
+feedparser>=6.0.11          # RSS/Atom パーサ（同期 API → asyncio.to_thread でラップ）
+
+# === テスト ===
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
