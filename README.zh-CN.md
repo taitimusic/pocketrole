@@ -4,7 +4,7 @@
 
 **由 LLM 驱动的角色沙盒故事模拟平台。**
 
-> Beta v0.1.0-beta.1 — PocketRole 仍在积极开发中，API、配置文件和操作流程可能会发生破坏性变更。
+> Beta v0.1.0-beta.1 — PocketRole 仍在积极开发中，API、配置文件和操作流程可能会在更新中调整。
 >
 > PocketRole 目前以日语为优先开发语言。英文和简体中文的界面 / 文档支持在 v0.1.0-beta.1 阶段仍属于部分支持和实验性支持。
 
@@ -114,4 +114,14 @@ http://127.0.0.1:8787/admin
 - 状态：公开 Beta
 - License：MIT
 
-PocketRole 已经可以使用，但还不是稳定的生产级框架。Beta 阶段请预期可能出现破坏性变更。
+第三方组件声明请参见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+PocketRole 已经可以使用，但还不是稳定的生产级框架。Beta 阶段，API、配置和操作流程可能会在版本更新中调整。
+
+---
+
+## 免责声明
+
+PocketRole 依据 MIT License 以“现状”提供，不提供担保。
+
+在法律允许的范围内，作者不对因使用本软件、生成内容、外部 LLM/API 或公开 Web 服务器而产生的损害、费用、数据公开或其他问题承担责任。请根据自己的环境和各服务条款管理 API Key、公开数据和使用费用。

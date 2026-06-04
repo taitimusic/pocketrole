@@ -114,4 +114,14 @@ For the complete Japanese onboarding guide, see [START_HERE.md](START_HERE.md).
 - Status: Public beta
 - License: MIT
 
-PocketRole is usable, but it is not yet a stable production framework. Please expect breaking changes during the beta period.
+Third-party component notices are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+PocketRole is usable, but it is not yet a stable production framework. During beta, APIs, settings, and operating workflows may change between releases.
+
+---
+
+## Disclaimer
+
+PocketRole is provided under the MIT License on an "as is" basis, without warranty.
+
+To the extent permitted by law, the author is not responsible for damages, costs, data exposure, service charges, or other issues arising from use of the software, generated content, external LLM APIs, or public web hosting. Manage API keys, published data, and service terms according to your own environment and the relevant providers' rules.
