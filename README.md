@@ -195,6 +195,8 @@ pocketrole_project/
 
 MIT License — 詳細は [LICENSE](LICENSE) を参照してください。
 
+同梱しているサードパーティコンポーネントの通知は [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) を参照してください。
+
 ---
 
 ## 開発状況

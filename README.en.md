@@ -114,4 +114,6 @@ For the complete Japanese onboarding guide, see [START_HERE.md](START_HERE.md).
 - Status: Public beta
 - License: MIT
 
+Third-party component notices are listed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
 PocketRole is usable, but it is not yet a stable production framework. Please expect breaking changes during the beta period.

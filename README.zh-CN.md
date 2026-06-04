@@ -114,4 +114,6 @@ http://127.0.0.1:8787/admin
 - 状态：公开 Beta
 - License：MIT
 
+第三方组件声明请参见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
 PocketRole 已经可以使用，但还不是稳定的生产级框架。Beta 阶段请预期可能出现破坏性变更。
