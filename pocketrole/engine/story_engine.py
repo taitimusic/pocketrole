@@ -3176,7 +3176,7 @@ class StoryEngine:
             "role_reversal": "場の流れが変わろうとしている",
             "role_reversal_ready": "場の流れが変わりそうだ",
             "small_win_loss": "小さなことで何かが決まろうとしている",
-            "chaos_partner": "場がざわついている",
+            "chaos_partner": "場が落ち着かない",
             "bluff_or_showoff": "誰かが何かを見せようとしている",
             "payoff_ready": "これまでのことが今ここで形になる",
             "stall_risk": "何か言わないと場が止まりそうだ",

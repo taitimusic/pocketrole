@@ -325,7 +325,7 @@ event_calendar:
   - event_date: "04-01"
     name: "始業式と旧事件の噂"
     duration_days: 1
-    atmosphere: "新学期のざわめきと、去年の事故をめぐる不穏な噂が同時に広がる"
+    atmosphere: "新学期の喧騒と、去年の事故をめぐる不穏な噂が同時に広がる"
     emotion_impact:
       excitement: 0.2
       stress: 0.2

@@ -5,6 +5,8 @@
 .codex/
 # Local agent/operator working files. Keep out of public distributions.
 /sagyou/
+# SNS / note 投稿用の下書き。公開リポジトリには含めない。
+/for_sns_text/
 # Generated clean public release worktrees.
 /pocketrole_for_github/
 # Claude Code - shared config is tracked, local settings excluded
