@@ -27,6 +27,14 @@ if (!is_dir($story_dir)) {
     echo 'story not found: ' . htmlspecialchars($story_id, ENT_QUOTES);
     exit;
 }
+
+function asset_url($path) {
+    $full_path = __DIR__ . '/' . $path;
+    if (!is_file($full_path)) {
+        return $path;
+    }
+    return $path . '?v=' . rawurlencode((string) filemtime($full_path));
+}
 ?>
 <!DOCTYPE html>
 <html lang="<?= htmlspecialchars($locale, ENT_QUOTES) ?>">
@@ -34,7 +42,7 @@ if (!is_dir($story_dir)) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= htmlspecialchars($story_id, ENT_QUOTES) ?> — Map Replay</title>
-  <link rel="stylesheet" href="assets/map_replay.css">
+  <link rel="stylesheet" href="<?= htmlspecialchars(asset_url('assets/map_replay.css'), ENT_QUOTES) ?>">
 </head>
 <body>
   <header class="page-header">
@@ -92,8 +100,8 @@ if (!is_dir($story_dir)) {
       defaultBgmUrl: "assets/audio/pocketrole_bgm.mp3"
     };
   </script>
-  <script src="assets/phaser.min.js"></script>
-  <script src="assets/i18n.js"></script>
-  <script src="assets/map_replay.js"></script>
+  <script src="<?= htmlspecialchars(asset_url('assets/phaser.min.js'), ENT_QUOTES) ?>"></script>
+  <script src="<?= htmlspecialchars(asset_url('assets/i18n.js'), ENT_QUOTES) ?>"></script>
+  <script src="<?= htmlspecialchars(asset_url('assets/map_replay.js'), ENT_QUOTES) ?>"></script>
 </body>
 </html>

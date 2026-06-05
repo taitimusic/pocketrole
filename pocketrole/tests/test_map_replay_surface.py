@@ -22,6 +22,16 @@ def test_map_replay_page_exists_and_loads_local_assets() -> None:
     assert "assets/map_replay.js" in page
 
 
+def test_map_replay_page_cache_busts_static_assets() -> None:
+    page = _read("web/map_replay.php")
+
+    assert "function asset_url($path)" in page
+    assert "asset_url('assets/map_replay.css')" in page
+    assert "asset_url('assets/phaser.min.js')" in page
+    assert "asset_url('assets/i18n.js')" in page
+    assert "asset_url('assets/map_replay.js')" in page
+
+
 def test_map_replay_page_exposes_public_runtime_config() -> None:
     page = _read("web/map_replay.php")
 
@@ -142,13 +152,18 @@ def test_map_replay_stop_button_cancels_in_flight_playback() -> None:
 
     assert "class PlaybackCancelledError extends Error" in app_js
     assert "function cancelPlaybackWait()" in app_js
+    assert "const motionCancelers = new Set();" in app_js
+    assert "function cancelSceneMotion()" in app_js
     assert "function playbackDelay(ms)" in app_js
     assert "function isPlaybackCancelled(error)" in app_js
     assert "if (isPlaying) {\n        stopPlayback();\n        return;\n      }" in app_js
     assert "cancelPlaybackWait();" in app_js
+    assert "cancelSceneMotion();" in app_js
     assert "clearBubble();" in app_js
     assert "if (!isPlaying) {\n      return;\n    }" in app_js
     assert "if (!isPlaybackCancelled(error))" in app_js
+    assert "tween.stop()" in app_js
+    assert "camera.panEffect" in app_js
 
 
 def test_map_replay_styles_define_fullscreen_map_and_minimal_hud() -> None:

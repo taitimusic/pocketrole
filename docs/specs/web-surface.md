@@ -79,6 +79,7 @@ story title、キャラ名、場所名、ログ本文、ニュースタイトル
 
 ### current cache note
 
+- `map_replay.php` は `assets/map_replay.css`, `assets/phaser.min.js`, `assets/i18n.js`, `assets/map_replay.js` に `filemtime` ベースの cache-busting query を付ける
 - shared hosting では `assets/map_replay.js` や place 画像に長めの cache-control が付くことがある
 - その場合、server 側の `placeImage` 実装や asset を更新しても、ブラウザが古い JS を保持して `storyMap` 側の見え方に戻ったように見えることがある
 - live で mode が期待どおりに切り替わらないときは、まず hard reload / private window / cache-busting query で確認する

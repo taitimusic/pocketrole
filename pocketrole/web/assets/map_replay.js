@@ -70,6 +70,7 @@
   let isPlaying = false;
   let playbackTimer = null;
   let playbackWaitCancel = null;
+  const motionCancelers = new Set();
   let playbackGeneration = 0;
   let isTransitioning = false;
   let activeBubble = null;
@@ -107,6 +108,21 @@
 
   function isPlaybackCancelled(error) {
     return error instanceof PlaybackCancelledError;
+  }
+
+  function registerMotionCanceler(cancel) {
+    motionCancelers.add(cancel);
+    return () => {
+      motionCancelers.delete(cancel);
+    };
+  }
+
+  function cancelSceneMotion() {
+    const cancelers = Array.from(motionCancelers);
+    motionCancelers.clear();
+    cancelers.forEach((cancel) => {
+      cancel();
+    });
   }
 
   function cancelPlaybackWait() {
@@ -449,8 +465,34 @@
   }
 
   function tweenPromise(scene, config) {
-    return new Promise((resolve) => {
-      scene.tweens.add({ ...config, onComplete: resolve });
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      let tween = null;
+      let unregister = () => {};
+      const finish = (fn, value) => {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        unregister();
+        fn(value);
+      };
+      const cancel = () => {
+        if (tween && typeof tween.stop === 'function') {
+          tween.stop();
+        }
+        finish(reject, new PlaybackCancelledError());
+      };
+      unregister = registerMotionCanceler(cancel);
+      tween = scene.tweens.add({
+        ...config,
+        onComplete: (...args) => {
+          if (typeof config.onComplete === 'function') {
+            config.onComplete(...args);
+          }
+          finish(resolve);
+        },
+      });
     });
   }
 
@@ -924,14 +966,34 @@
   }
 
   function cameraPanPromise(scene, x, y, duration) {
-    return new Promise((resolve) => {
+    return new Promise((resolve, reject) => {
+      let settled = false;
+      let unregister = () => {};
+      const camera = scene.cameras.main;
+      const finish = (fn, value) => {
+        if (settled) {
+          return;
+        }
+        settled = true;
+        unregister();
+        fn(value);
+      };
+      const cancel = () => {
+        if (camera.panEffect && typeof camera.panEffect.reset === 'function') {
+          camera.panEffect.reset();
+        } else if (typeof camera.resetFX === 'function') {
+          camera.resetFX();
+        }
+        finish(reject, new PlaybackCancelledError());
+      };
+      unregister = registerMotionCanceler(cancel);
       scene.cameras.main.pan(x, y, duration, 'Sine.easeInOut', true, (_camera, progress) => {
         if (activeBubble && runtime.characters.has(runtime.activeCharId)) {
           const activeContainer = runtime.characters.get(runtime.activeCharId);
           positionBubbleForContainer(activeContainer);
         }
         if (progress >= 1) {
-          resolve();
+          finish(resolve);
         }
       });
     });
@@ -1005,6 +1067,7 @@
     isPlaying = false;
     playbackGeneration += 1;
     cancelPlaybackWait();
+    cancelSceneMotion();
     clearBubble();
     playToggleBtn.textContent = i18n.t('map.play');
     if (audioController) {
